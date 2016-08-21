@@ -1,0 +1,280 @@
+/* fixed header & footer, scrollable content */
+/*footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}*/
+
+/* Vertical Align */
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* align center text */
+.text-center
+  text-align: center;
+}
+
+.text-left
+  text-align: left;
+}
+
+.text-right
+  text-align: right;
+}
+
+
+/* sourceCode_developer.html css */
+.class_font{
+
+}
+
+.method_font{
+
+}
+
+.accessModifier_font{
+
+}
+
+/* hide */
+.hide{
+  display: none;
+}
+
+/* tab */
+.tab-left-5{
+  padding-left: 5%;
+}
+
+.tab-left-10{
+  padding-left: 10%;
+}
+
+.tab-left-15{
+  padding-left: 15%;
+}
+
+.tab-left-20{
+  padding-left: 20%;
+}
+
+.tab-left-25{
+  padding-left: 25%;
+}
+
+.tab-left-30{
+  padding-left: 30%;
+}
+
+.tab-left-35{
+  padding-left: 35%;
+}
+
+.tab-left-40{
+  padding-left: 40%;
+}
+
+.tab-left-45{
+  padding-left: 45%;
+}
+
+.tab-left-50{
+  padding-left: 50%;
+}
+
+.tab-left-55{
+  padding-left: 55%;
+}
+
+.tab-left-60{
+  padding-left: 60%;
+}
+
+.tab-left-65{
+  padding-left: 65%;
+}
+
+.tab-left-70{
+  padding-left: 70%;
+}
+
+.tab-left-75{
+  padding-left: 75%;
+}
+
+.tab-left-80{
+  padding-left: 80%;
+}
+
+.tab-left-85{
+  padding-left: 85%;
+}
+
+.tab-left-90{
+  padding-left: 90%;
+}
+
+.tab-left-95{
+  padding-left: 95%;
+}
+
+.tab-left-100{
+  padding-left: 100%;
+}
+
+.tab-right-5{
+  padding-right: 5%;
+}
+
+.tab-right-10{
+  padding-right: 10%;
+}
+
+.tab-right-15{
+  padding-right: 15%;
+}
+
+.tab-right-20{
+  padding-right: 20%;
+}
+
+.tab-right-25{
+  padding-right: 25%;
+}
+
+.tab-right-30{
+  padding-right: 30%;
+}
+
+.tab-right-35{
+  padding-right: 35%;
+}
+
+.tab-right-40{
+  padding-right: 40%;
+}
+
+.tab-right-45{
+  padding-right: 45%;
+}
+
+.tab-right-50{
+  padding-right: 50%;
+}
+
+.tab-right-55{
+  padding-right: 55%;
+}
+
+.tab-right-60{
+  padding-right: 60%;
+}
+
+.tab-right-65{
+  padding-right: 65%;
+}
+
+.tab-right-70{
+  padding-right: 70%;
+}
+
+.tab-right-75{
+  padding-right: 75%;
+}
+
+.tab-right-80{
+  padding-right: 80%;
+}
+
+.tab-right-85{
+  padding-right: 85%;
+}
+
+.tab-right-90{
+  padding-right: 90%;
+}
+
+.tab-right-95{
+  padding-right: 95%;
+}
+
+.tab-right-100{
+  padding-right: 100%;
+}
+
+/* link <a> color change when hover on*/
+/* Global */
+.container a:hover{
+  text-decoration: none;
+  color: white;
+}
+
+#psvm-body:hover #psvm-open,
+#psvm-body:hover #psvm-close{
+  color: purple;
+}
+
+#method-impl-getSkills-body:hover #method-impl-getSkills-open,
+#method-impl-getSkills-body:hover #method-impl-getSkills-close{
+  color: green;
+}
+
+#method-impl-getSkills-backEnd-body:hover #method-impl-getSkills-backEnd-bullet{
+  color: orange;
+}
+
+#method-impl-getSkills-frontEnd-body:hover #method-impl-getSkills-frontEnd-bullet{
+  color: orange;
+}
+
+#method-impl-getSkills-development-body:hover #method-impl-getSkills-development-bullet{
+  color: orange;
+}
+
+#method-impl-getSkills-return > a:hover{
+  color: red;
+}
+
+/* remove padding & margin of <p> */
+p {
+    margin: 0;
+    padding: 0;
+}
+
+/* same line left & right align */
+.alignLeft {
+  float: left;
+}
+
+.alignRight {
+  float: right;
+}
+
+.clearFloat{
+  clear: both;
+}
+
+/* stick the footer at the bot when scrolling */
+footer {
+  height: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 150;
+}
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/

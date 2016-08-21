@@ -1,0 +1,13 @@
+#########################################
+# NOTE:
+# 1. space " " after the ":" is essential
+#########################################
+
+# default markdonw engine on GitHub
+markdown: redcarpet
+
+# gh-pages project name (the url after the xinli.io)
+baseurl: /omega-blog
+
+# ignore any folders or files
+exclude: ['README.md', 'other-folder']
