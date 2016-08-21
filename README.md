@@ -1,2 +1,2 @@
 # omega-portfolio
-Personal Portfolio
+Personal Portfolio (Jekyll & gh-pages)
