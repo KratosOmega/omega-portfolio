@@ -1,9 +1,10 @@
 
 <!-- Share Buttons Start -->
+
 <div>
     <ul class="rrssb-buttons clearfix">
         {% if site.email-share %}
-        <li class="rrssb-email">
+        <li class="rrssb-email largeButton">
             <a href="mailto:?subject={{page.title}}&body={{site.url}}{{site.baseurl}}{{page.url}}" data-proofer-ignore>
                 <span class="rrssb-icon">
                     <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
@@ -16,7 +17,7 @@
         </li>
         {% endif %}
         {% if site.fb-share %}
-        <li class="rrssb-facebook">
+        <li class="rrssb-facebook largeButton">
             <a href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{site.baseurl}}{{page.url}}&title={{page.title}}" class="popup">
                 <span class="rrssb-icon">
                     <svg xmlns="https://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="29" height="29" viewBox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
@@ -27,7 +28,7 @@
         </li>
         {% endif %}
         {% if site.twitter-share %}
-        <li class="rrssb-twitter">
+        <li class="rrssb-twitter largeButton">
             <a href="https://twitter.com/share?url={{site.url}}{{site.baseurl}}{{page.url}}&text={{page.title}}"
                class="popup">
                 <span class="rrssb-icon"><svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"/></svg></span>
@@ -36,7 +37,7 @@
         </li>
         {% endif %}
         {% if site.linkedin-share %}
-        <li class="rrssb-linkedin">
+        <li class="rrssb-linkedin largeButton">
             <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{site.url}}{{site.baseurl}}{{page.url}}" class="popup">
                 <span class="rrssb-icon">
                     <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
@@ -49,7 +50,7 @@
         </li>
         {% endif %}
         {% if site.reddit-share %}
-        <li class="rrssb-reddit">
+        <li class="rrssb-reddit largeButton">
             <a href="https://www.reddit.com/submit?url={{site.url}}{{site.baseurl}}{{page.url}}&title={{page.title}}" target="_blank">
                 <span class="rrssb-icon">
                     <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
@@ -64,17 +65,17 @@
         </li>
         {% endif %}
         {% if site.google-plus-share %}
-        <li class="rrssb-googleplus">
+        <li class="rrssb-googleplus smallButton">
             <a href="https://plus.google.com/share?url={{site.url}}{{site.baseurl}}{{page.url}}" class="popup">
                 <span class="rrssb-icon">
                     <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 8.29h-1.95v2.6h-2.6v1.82h2.6v2.6H21v-2.6h2.6v-1.885H21V8.29zM7.614 10.306v2.925h3.9c-.26 1.69-1.755 2.925-3.9 2.925-2.34 0-4.29-2.016-4.29-4.354s1.885-4.353 4.29-4.353c1.104 0 2.014.326 2.794 1.105l2.08-2.08c-1.3-1.17-2.924-1.883-4.874-1.883C3.65 4.586.4 7.835.4 11.8s3.25 7.212 7.214 7.212c4.224 0 6.953-2.988 6.953-7.082 0-.52-.065-1.104-.13-1.624H7.614z"/></svg>
                 </span>
-                <span class="rrssb-text">google+</span>
+                <!--<span class="rrssb-text">google+</span>-->
             </a>
         </li>
         {% endif %}
         {% if site.tumblr-share %}
-        <li class="rrssb-tumblr">
+        <li class="rrssb-tumblr smallButton">
             <a href="https://tumblr.com/share/link?url={{site.url}}{{site.baseurl}}{{page.url}}" target="_blank">
                 <span class="rrssb-icon">
                     <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
@@ -82,12 +83,12 @@
                         />
                     </svg>
                 </span>
-                <span class="rrssb-text">tumblr</span>
+                <!--<span class="rrssb-text">tumblr</span>-->
             </a>
         </li>
         {% endif %}
         {% if site.pinterest-share %}
-        <li class="rrssb-pinterest">
+        <li class="rrssb-pinterest smallButton">
             <a href="https://pinterest.com/pin/create/button/?url={{site.url}}{{site.baseurl}}{{page.url}}" target="_blank">
                 <span class="rrssb-icon">
                     <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
@@ -95,12 +96,12 @@
                         />
                     </svg>
                 </span>
-                <span class="rrssb-text">pinterest</span>
+                <!--<span class="rrssb-text">pinterest</span>-->
             </a>
         </li>
         {% endif %}
         {% if site.pocket-share%}
-        <li class="rrssb-pocket">
+        <li class="rrssb-pocket smallButton">
             <a href="https://getpocket.com/save?url={{site.url}}{{site.baseurl}}{{page.url}}">
                 <span class="rrssb-icon">
                     <svg width="32" height="28" viewBox="0 0 32 28" xmlns="http://www.w3.org/2000/svg">
@@ -108,21 +109,22 @@
                         />
                     </svg>
                 </span>
-                <span class="rrssb-text">pocket</span>
+                <!--<span class="rrssb-text">pocket</span>-->
             </a>
         </li>
         {% endif %}
         {% if site.vkontakte-share %}
-        <li class="rrssb-vk">
+        <li class="rrssb-vk smallButton">
             <a href="https://vk.com/share.php?url={{site.url}}{{site.baseurl}}{{page.url}}" class="popup">
                 <span class="rrssb-icon">
                     <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="70 70 378.7 378.7"><path d="M254.998 363.106h21.217s6.408-.706 9.684-4.23c3.01-3.24 2.914-9.32 2.914-9.32s-.415-28.47 12.796-32.663c13.03-4.133 29.755 27.515 47.482 39.685 13.407 9.206 23.594 7.19 23.594 7.19l47.407-.662s24.797-1.53 13.038-21.027c-.96-1.594-6.85-14.424-35.247-40.784-29.728-27.59-25.743-23.126 10.063-70.85 21.807-29.063 30.523-46.806 27.8-54.405-2.596-7.24-18.636-5.326-18.636-5.326l-53.375.33s-3.96-.54-6.892 1.216c-2.87 1.716-4.71 5.726-4.71 5.726s-8.452 22.49-19.714 41.618c-23.77 40.357-33.274 42.494-37.16 39.984-9.037-5.842-6.78-23.462-6.78-35.983 0-39.112 5.934-55.42-11.55-59.64-5.802-1.4-10.076-2.327-24.915-2.48-19.046-.192-35.162.06-44.29 4.53-6.072 2.975-10.757 9.6-7.902 9.98 3.528.47 11.516 2.158 15.75 7.92 5.472 7.444 5.28 24.154 5.28 24.154s3.145 46.04-7.34 51.758c-7.193 3.922-17.063-4.085-38.253-40.7-10.855-18.755-19.054-39.49-19.054-39.49s-1.578-3.873-4.398-5.947c-3.42-2.51-8.2-3.307-8.2-3.307l-50.722.33s-7.612.213-10.41 3.525c-2.488 2.947-.198 9.036-.198 9.036s39.707 92.902 84.672 139.72c41.234 42.93 88.048 40.112 88.048 40.112"/></svg>
                 </span>
-                <span class="rrssb-text">vk.com</span>
+                <!--<span class="rrssb-text">vk.com</span>-->
             </a>
         </li>
         {% endif %}
     </ul>
 </div>
+
 
 <!-- Share Buttons End -->

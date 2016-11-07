@@ -62,6 +62,12 @@ disqus-shortname: "omega"
 syntax-highlight: True
 
 
+###########
+# Contact #
+###########
+
+email: "KratosOmega@iCloud.com"
+
 
 ##################
 # Social Buttons #
