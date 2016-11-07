@@ -1,3 +1,6 @@
+# Many thanks for John, my personal jekyll-based portfolio & blog is base on his jekyll project
+# project portal: https://github.com/panossakkos/personal-jekyll-theme/
+
 #########################################
 # NOTE:
 # 1. space " " after the ":" is essential
@@ -6,8 +9,122 @@
 # default markdonw engine on GitHub
 markdown: redcarpet
 
-# gh-pages project name (the url after the xinli.io)
-baseurl: /omega-blog
+# NB! Set your site's url, otherwise stuff will break :)
 
+url: "https://xinli.io"
+
+# If you're hosting your site at a Project repository on GitHub pages
+# (https://yourusername.github.io/repository-name)
+# and NOT your user repository (https://yourusername.github.io)
+# then add in the baseurl here, like this: "/repository-name"
+#
+# NB! Without this *nothing* will work, because it's used in every path :)
+# gh-pages project name (the url after the xinli.io)
+
+#baseurl: /repository-name
+
+
+#############
+# HTML Head #
+#############
+
+lang: "en"
+author: "Xin Li"
+title: "{ Xin Li }"
+description: "IT & Coding related Blog for personal studying"
+keywords: "IT, Coding, Programming, Hacking, Omega"
+favicon: ""
+
+
+########
+# Blog #
+########
+
+# enable-gesture-navigation: True
+
+post-preview-words: 96
+
+paginate: 5
+
+email-share: True
+fb-share: True
+twitter-share: True
+linkedin-share: True
+reddit-share: True
+google-plus-share: True
+tumblr-share: True
+pinterest-share: True
+pocket-share: True
+vkontakte-share: True
+
+disqus-shortname: "omega"
+
+syntax-highlight: True
+
+
+
+##################
+# Social Buttons #
+##################
+
+social:
+  - title: "stack-overflow"
+    url: "http://stackoverflow.com/users/6008493/kratos-omega?tab=profile"
+  - title: "github"
+    url: "https://github.com/KratosOmega"
+  - title: "linkedin"
+    url: "https://www.linkedin.com/in/xin-li-30982b52?trk=nav_responsive_tab_profile"
+  - title: "facebook"
+    url: "https://www.facebook.com/profile.php?id=100012816881722"
+  - title: "twitter"
+    url: "https://twitter.com/Kratos_Omega"
+
+############
+# 404 page #
+############
+
+404-img: "/img/404.png"
+
+##################
+# GPG on Keybase #
+##################
+
+keybase-username: xinli
+keybase-in-social: True
+keybase-in-footer: True
+
+################################################################################
+
+# NB! Tread carefully if you want to change the variables below this point!
+
+# Sections shown in the index page
+
+
+################## Update This later ##################
+#pages_list:
+#  About: 'about'
+#  Resume: 'resume'
+#  Project: 'project'
+#  Blog: 'latest-post'
+#  Contact: 'contact'
+################## Update This later ##################
+
+
+# Exclusion list from the generated _site
 # ignore any folders or files
-exclude: ['README.md', 'other-folder']
+exclude: ["LICENSE", "README.md", "CONTRIBUTING", "CONTRIBUTORS", "scripts"]
+
+# Pagination path
+
+paginate_path: "blog/page:num/"
+
+# Enable minification SASS
+
+sass:
+  style: compressed
+
+gems:
+  - jekyll-paginate
+  - jemoji
+
+

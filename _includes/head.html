@@ -7,13 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
     <!-- Title -->
-    <title>Xin Li - Profolio</title>
+    <title>{{site.title}}{% if page.title %} | {{page.title}}{% endif %}</title>
 
     <!-- CSS Framework -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.css">
-    <link rel="stylesheet" href="./assets/css/custom.min.css">
-    <link rel="stylesheet" href="./assets/css/custom.css">
-    <link rel="stylesheet" href="./assets/css/font-awesome.css">
+    {% if page.section-type == "index" %}
+    {% endif %}
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/custom.min.css">
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/custom.css">
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/font-awesome.css">
 
 </head>
 
