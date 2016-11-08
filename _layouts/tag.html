@@ -23,7 +23,7 @@
                         {% for t in post.tags %}
                         {% capture tg %}{{ t | downcase }}{% endcapture %}
                         {% if tg == tag %}
-                        {% include post-list.html%}
+                        {% include post_list.html%}
                         {% endif %}
                         {% endfor %}
                         {% endfor %}
