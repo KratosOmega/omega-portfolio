@@ -7,23 +7,28 @@ tags: [ 'python', 'algorithm', 'leetcode' ]
 comments: true
 ---
 
-<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have exactly one solution.</p>
-<br>
-<strong>Example:</strong>
-<p>Given nums = [2, 7, 11, 15], target = 9,</p>
-<br>
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,</p>
-<p>return [0, 1].</p>
+#### Problem Description
+> ###### Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+###### You may assume that each input would have exactly one solution.
+<br />
+###### Example:
+> Given nums = [2, 7, 11, 15], target = 9,\\
+Because nums[0] + nums[1] = 2 + 7 = 9,\\
+return [0, 1].
 
 <br>
-<hr>
+
+#### Problem Analysis:
+> ###### Here
+
 <br>
 
-<h3>Solution</h3>
+#### Solution
 <br>
 
-~~~ python3
+
+
+~~~ 
 #!/usr/bin/env python3
 
 """Two Sum
@@ -53,7 +58,7 @@ class Solution(object):
 #### This is another online solution which is a good reference (Better performance)
 <br>
 
-~~~ python3
+~~~
 #!/usr/bin/env python3
 
 class Solution(object):
@@ -68,3 +73,5 @@ class Solution(object):
         return []
 ~~~
 
+#### Summary
+> ###### Summary goes here
