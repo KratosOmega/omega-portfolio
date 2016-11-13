@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+body{
+    font-family: Times New Roman;
+    color: white;
+}
 /* fixed header & footer, scrollable content */
 /*footer {
     position: fixed;
@@ -264,7 +272,17 @@ footer {
   right: 0;
   z-index: 150;
 }
-/**/
+
+/* pagination css */
+.pagination{
+    
+}
+
+.pagination h4{
+
+}
+
+
 /**/
 /**/
 /**/
