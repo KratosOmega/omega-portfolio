@@ -26,8 +26,6 @@ return [0, 1].
 #### Solution
 <br>
 
-
-
 ~~~ 
 #!/usr/bin/env python3
 
@@ -55,7 +53,9 @@ class Solution(object):
 ~~~
 
 <br>
+
 #### This is another online solution which is a good reference (Better performance)
+
 <br>
 
 ~~~
