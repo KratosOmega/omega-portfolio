@@ -1,9 +1,28 @@
+---
+
+---
+/*
+Jekyll processes all files that have YAML front matter.
+Stick a front matter section (even if it's empty) at the beginning of your file,
+and Jekyll will transform it correctly.
+
+PS: YAML front matter ---> MUST be at the very beginning of the file
+*/
+
+
+/* ###################################################### */
+/* font setting */
 @font-face {
-    font-family: "Times New Roman", Georgia, Serif;
-}
+    font-family: source-code-pro;
+    /*src: url("{{site.baseurl}}/assets/fonts/source-code-pro-2.030R-ro-1.050R-it/WOFF/TTF/SourceCodePro-Black.ttf.woff");*/
+    src: url("{{site.baseurl}}/assets/fonts/source-code-pro-2.030R-ro-1.050R-it/WOFF/TTF/SourceCodePro-Regular.ttf.woff");
+    /*src: url("{{site.baseurl}}/assets/fonts/source-code-pro-2.030R-ro-1.050R-it/WOFF2/TTF/SourceCodePro-Regular.ttf.woff2");*/
+       }
+
+/* ###################################################### */
 
 body{
-    font-family: Times New Roman;
+    font-family: source-code-pro;
     color: white;
 }
 /* fixed header & footer, scrollable content */
