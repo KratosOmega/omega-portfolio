@@ -3,11 +3,11 @@ $(document).ready(function(){
     /* set code block width equals to the .highlight div -> when everytime page is refreshed */
 
     $("td.code").css({
-        'width': ($(".highlight").width() + 'px')
+        'width': ($("blockquote").width() + 'px')
     });
 
     $("td.code pre").css({
-        'width': ($("td.code").width() + 'px')
+        'width': ($("blockquote").width() + 'px')
     });
 
     /* ############################################################# */
