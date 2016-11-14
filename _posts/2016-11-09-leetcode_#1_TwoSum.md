@@ -22,11 +22,16 @@ return [0, 1].
 
 #### Problem Analysis:
 
-> Analysis Goes here...
+> Well, a O(n&sup2;) solution will be the first one comes to my mind. It will be a brutal force method which uses parallel loops to check every single combination.\\
+\\
+However, try to always think about whether dictionary can be used to make problem much easier.\\
+\\
+Thanks to the (key, value) data structure and build-in method, it will be easier to quickly check the combination and quit loop as soon as we find our target.
+
 
 <br>
 
-#### Solution
+#### Solution: O(n&sup2;)
 
 <br>
 
@@ -58,7 +63,7 @@ class Solution(object):
 
 <br>
 
-#### This is another online solution which is a good reference (Better performance)
+#### This is another online solution which is a good reference (Better performance): O(n)
 
 <br>
 
@@ -81,4 +86,9 @@ class Solution(object):
 
 #### Summary
 
-> Summary goes here...
+> The O(n) solution uses "enumerate()", which is a python build-in method to make iterator countable, however, this is not a must-do if you are using other language.\\
+Simply using for loop to count from 0 will also do the same thing.\\
+\\
+There are 2 key points of this method. First one is having a "lookup" dictionary to keep track the non-match data. As long as current data is not matched in current "lookup" dictionary, we put the current data into the "lookup" dictionary as "KEY", but the counter "i" as "VALUE". This is the second key point. This is because we need to use the advantage of dictionary which the key is unique and can be quickly searched.\\
+\\
+As soon as we find matched key in dictionary, we return the combination to terminate the search.
