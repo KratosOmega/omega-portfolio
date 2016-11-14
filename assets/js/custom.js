@@ -1,8 +1,20 @@
 $(document).ready(function(){
+    /* ############################################################# */
+    /* set code block width equals to the .highlight div -> when everytime page is refreshed */
+
+    $("td.code").css({
+        'width': ($(".highlight").width() + 'px')
+    });
+
+    $("td.code pre").css({
+        'width': ($("td.code").width() + 'px')
+    });
+
+    /* ############################################################# */
+
   // ********************************************************************************************************************* initiate the body to behide 
   $(".default-hide").hide();
   $("#main").show();
-  
 
   // ********************************************************************************************************************* click to show the page
   $("#showMain").click(function(){

@@ -1,11 +1,265 @@
+/* ################################################################## */
+/* Update the content width on different media scale */
+/* need to add more different media scale */
+
+/* >>> !!! This section is still under construction !!! <<< */
+
+@media (max-width: 979px) {
+    
+ }
+ 
+@media (max-width: 480px) {
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* ########### Mobile          ########### */
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+
+}
+
+/* ----------- iPhone 6 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    td.code {
+        width: 300px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* ----------- iPhone 6+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    td.code {
+        width: 350px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+    td.code {
+        width: 350px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    td.code {
+        width: 350px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* ########### Laptop             ########### */
+/* ----------- Non-Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    td.code {
+        width: 800px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) {
+    td.code {
+        width: 800px;
+    }
+
+    pre {
+        width: 100%;
+    }
+}
+/* ################################################################## */
 
 /* ################################################################## */
 /* pre => set all text style in code block */
 /* force the text to be white & force the background to be black */
+pre.lineno {
+    width: 40px;
+}
+
 pre {
     color: #ffffff;
     background-color: #171818;
+    overflow-x: scroll;
+    /*overflow-y: scroll;*/
 }
+/* ################################################################## */
+
+/* ################################################################## */
+/* This section adds the horizontal scroll bar when codes are too long */
+.highlight pre {
+    word-wrap: normal;
+}
+
+.highlight pre code {
+    white-space: pre;
+}
+/* ################################################################## */
 
 /* having a lineno-container made it easier to style line number */
 /* code blocks without impacting normal code blocks */
