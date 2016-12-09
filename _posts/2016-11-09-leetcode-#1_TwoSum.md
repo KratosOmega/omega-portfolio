@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: Two Sum
-category: python
+category: Leetcode
 tags: [ 'python', 'algorithm', 'leetcode' ]
 comments: true
 ---

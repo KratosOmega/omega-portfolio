@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: Add Two Numbers
-category: python
+category: Leetcode
 tags: [ 'python', 'algorithm', 'leetcode' ]
 comments: true
 ---
