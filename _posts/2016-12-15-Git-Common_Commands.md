@@ -21,7 +21,6 @@ Hopely, this will give someone a little help or inspiration.
 <br>
 
 #### Commonly Used Commands:
-
 <br>
 
 ~~~
@@ -83,6 +82,7 @@ Next, I will use some common scenarios to demonstrate how to use these commands 
 <br>
 
 #### Remote vs. Local
+<br>
 
 This used be a concept that confused me a lot when I first started learning git, but here are the simply ONE-WORD definitions to help you understand them.\\
 <br>
@@ -100,6 +100,7 @@ You will need to get your tasks from office (Remote) and bring them to home (Loc
 <br>
 
 #### When you need to work on something new (feature or bug)
+<br>
 Branch is very important!!!
 For daily development, team usually has a main branch such as "master" or "develop" which should not never be a working branch at all. That means no one should ever work on the main branch for any fixes or features. The only thing that we will do to main branch is merging & branch-off.
 
@@ -124,6 +125,7 @@ If you work in a team environment, it is possible that your local main branch is
 <br>
 
 #### Save you work and Share it to others (add, commit & push)
+<br>
 The __Commonly Used Commands__ command reference is [7]->[8/9]->[10/11]->[13]->[15]->[16]
 
 <br>
@@ -154,6 +156,7 @@ You can create multiple commits before you do the push. Push the commits to the 
 <br>
 
 #### Feature/Fix is done (merge & conflicts)
+<br>
 The __Commonly Used Commands__ command reference is [2]->[6]->[2]->[17]
 
 <br>
