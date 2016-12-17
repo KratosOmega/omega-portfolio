@@ -24,7 +24,7 @@ Hopely, this will give someone a little help or inspiration.
 <br>
 
 ~~~
-
+    
 cd <local_repos_path>
 git checkout <existed_branch_name>
 git checkout -b <new_branch_name>
@@ -44,7 +44,6 @@ git push origin <current_branch_name>
 git merge <merging_branch_name> --no-ff
 git diff <from_commit> <to_commit> > <output_patch_path>
 git apply <patch_file_path>
-
 ~~~
 
 <br>
@@ -108,6 +107,7 @@ Whenever you want to work on something, execute the following commands to create
 The __Commonly Used Commands__ command reference is [2]->[6]->[2]->[3]
 <br>
 ~~~
+    
 git checkout other_Branch
 git branch -D master
 git checkout master
@@ -123,6 +123,7 @@ If you work in a team environment, it is possible that your local main branch is
 The __Commonly Used Commands__ command reference is [7]->[8/9]->[10/11]->[13]->[15]->[16]
 <br>
 ~~~
+    
 git status
 git diff
 git add --all
@@ -149,6 +150,7 @@ You can create multiple commits before you do the push. Push the commits to the 
 #### Feature/Fix is done (merge & conflicts)
 The __Commonly Used Commands__ command reference is [2]->[6]->[2]->[17]
 ~~~
+    
 git checkout other_Branch
 git branch -D master
 git checkout master
@@ -165,6 +167,7 @@ Now, we are ready for the merging by using "git merge" ([17]) with the branch th
 Well, life is not always easy. Sometimes, there will be merge conflicts which require you to do the merge manual (git add & git commit).\\
 <br>
 ~~~
+    
 <<<<<<<<<<<< HEAD
 // codes
 // ...
@@ -195,6 +198,7 @@ NOTE: if either form_commit or to_commit are omitted, they will be assumed to be
 
 The codes below is a example of how to create a patch with commit hash.
 ~~~
+    
 $ git log --oneline -5
 
 0f0840b commit msg 5
@@ -211,6 +215,7 @@ After you have done with the patch, it is fairly easy to apply it. However, befo
 <br>
 
 ~~~
+    
 git apply example_path.diff
 ~~~
 
@@ -226,6 +231,7 @@ I didn't find them to be frequently used as the commands that I introduced above
 
 #### Useful Commands
 ~~~
+    
 git ls-remote | grep <branch_partial_name>
 ~~~
 
