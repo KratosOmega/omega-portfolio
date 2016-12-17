@@ -106,15 +106,18 @@ For daily development, team usually has a main branch such as "master" or "devel
 Whenever you want to work on something, execute the following commands to create a separate branch base on the main branch (I will assume you are already in your local repository):\\
 <br>
 The __Commonly Used Commands__ command reference is [2]->[6]->[2]->[3]
+
 <br>
+
 ~~~
-    
 git checkout other_Branch
 git branch -D master
 git checkout master
 git checkout -b new_feature
 ~~~
+
 <br>
+
 If you work in a team environment, it is possible that your local main branch is outdated due to the pushed commits from your team members. Thus, before we branch off from the main branch, I recommand to ALWAYS grab the most updated main branch from remote. Some people will use "git fetch" & "git merge", well, I prefer to simply delete my local copy and grab it from remote directly, so that I don't have to deal with the merging pain.\\
 <br>
 <hr>
@@ -122,9 +125,10 @@ If you work in a team environment, it is possible that your local main branch is
 
 #### Save you work and Share it to others (add, commit & push)
 The __Commonly Used Commands__ command reference is [7]->[8/9]->[10/11]->[13]->[15]->[16]
+
 <br>
+
 ~~~
-    
 git status
 git diff
 git add --all
@@ -132,6 +136,7 @@ git commit -m "message to explain this commit"
 git log --oneline --graph --decorate
 git push origin current_branch_name
 ~~~
+
 <br>
 
 I strongly suggestion to frequently use [7], "git status" to track the current status of your current branch.\\
@@ -150,14 +155,18 @@ You can create multiple commits before you do the push. Push the commits to the 
 
 #### Feature/Fix is done (merge & conflicts)
 The __Commonly Used Commands__ command reference is [2]->[6]->[2]->[17]
+
+<br>
+
 ~~~
-    
 git checkout other_Branch
 git branch -D master
 git checkout master
 git merge new_feature --no-ff
 ~~~
+
 <br>
+
 Before you start doing the merging, PLEASE!!! make sure you have the main branch on latest version. You team will thank you for doing this and it will make your life much easier, trust me.\\
 To get the latest vesion of main branch, execute the Line-1~3. (which are [2], [6], [2])
 <br>
@@ -167,8 +176,8 @@ Now, we are ready for the merging by using "git merge" ([17]) with the branch th
 
 Well, life is not always easy. Sometimes, there will be merge conflicts which require you to do the merge manual (git add & git commit).\\
 <br>
+
 ~~~
-    
 <<<<<<<<<<<< HEAD
 // codes
 // ...
@@ -177,7 +186,9 @@ Well, life is not always easy. Sometimes, there will be merge conflicts which re
 // ...
 >>>>>>>>>>>> merging_branch_name
 ~~~
+
 <br>
+
 In order to solve the merge conflicts, first of all, find the conflicts codes by looking for "<<< HEAD" or "=====" (these 2 patterns are pretty unique and you should locate the conflicts very easily by using them) and fix the conflicts.\\
 <br>
 As soon as all the conflicts are resolved, do the [git add --all] & [git commit -m "merge_conflicts_message"] to manually merge the changes.
@@ -198,8 +209,10 @@ NOTE: if either form_commit or to_commit are omitted, they will be assumed to be
 <br>
 
 The codes below is a example of how to create a patch with commit hash.
+
+<br>
+
 ~~~
-    
 $ git log --oneline -5
 
 0f0840b commit msg 5
@@ -212,13 +225,15 @@ $ git diff 410cf8e 0f0840b > example_path.diff
 ~~~ 
 
 <br>
+
 After you have done with the patch, it is fairly easy to apply it. However, before you apply the patch, make sure you have checked out the branch that you want to apply the patch to (also make sure the version of it is updated).\\
 <br>
 
 ~~~
-    
 git apply example_path.diff
 ~~~
+
+<br>
 
 <hr>
 
@@ -231,8 +246,9 @@ I didn't find them to be frequently used as the commands that I introduced above
 <br>
 
 #### Useful Commands
+<br>
+
 ~~~
-    
 git ls-remote | grep <branch_partial_name>
 ~~~
 
