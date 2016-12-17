@@ -20,11 +20,11 @@ Hopely, this will give someone a little help or inspiration.
 <hr>
 <br>
 
-#### Commonly Used Commands
+#### Commonly Used Commands:
+
 <br>
 
 ~~~
-    
 cd <local_repos_path>
 git checkout <existed_branch_name>
 git checkout -b <new_branch_name>
@@ -47,6 +47,7 @@ git apply <patch_file_path>
 ~~~
 
 <br>
+
 ###### Description:
 1. Before you do anything, always make sure you are in the local repository.
 2. Swiching to a existed branch. <existed_branch_name> here has 2 meaning, one is that you have the copy of existed remote branch on your local machine, another is that you don't have the copy of existed remote branch on your local machine. The difference between these two situation, in simply words, you may switch to an outdated branch in the first situation, and the second situation will always give you the most updated situation, since git can not find a local copy of the remote branch, it will grab the current version on remote and make a local copy of it.
