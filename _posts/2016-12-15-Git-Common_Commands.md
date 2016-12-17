@@ -22,7 +22,9 @@ Hopely, this will give someone a little help or inspiration.
 
 #### Commonly Used Commands
 <br>
+
 ~~~
+
 cd <local_repos_path>
 git checkout <existed_branch_name>
 git checkout -b <new_branch_name>
@@ -42,7 +44,9 @@ git push origin <current_branch_name>
 git merge <merging_branch_name> --no-ff
 git diff <from_commit> <to_commit> > <output_patch_path>
 git apply <patch_file_path>
+
 ~~~
+
 <br>
 ###### Description:
 1. Before you do anything, always make sure you are in the local repository.
