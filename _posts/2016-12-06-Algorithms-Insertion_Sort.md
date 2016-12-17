@@ -24,7 +24,7 @@ It has time complexity of O(n&sup2;), and as the size of elements increase, it w
 <br>
 <br>
 ![Insertion Sort Gif]({{site.baseurl}}/assets/img/posts_img/2016-12-06-Algorithms-Insertion_Sort/Insertion-sort-example-300px.gif){:class="img-responsive"}
-(Gif form wiki)
+(Gif from wiki)
 <br>
 <br>
 
