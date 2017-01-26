@@ -1,7 +1,7 @@
 ---
 layout: post
 section-type: post
-title: Linear Regression Learning Algorithm (Supervied)
+title: Linear Regression Learning Algorithm (Supervised)
 category: Artificial_Intelligence
 tags: [ 'python', 'algorithm', 'reading', 'machine_learning' ]
 comments: true
