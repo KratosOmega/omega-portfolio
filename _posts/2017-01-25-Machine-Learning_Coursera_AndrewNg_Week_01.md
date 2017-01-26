@@ -39,8 +39,8 @@ By feeding the learning algorithm with the training data set, we can get a "hypo
 <br>
 
 >
-- Hypothesis is a linear regression function (line) which fits the training data set as much as possible. So that we can use it to predict the output when input is given.
-- Our goal is to find the theta0 & theta1 that make cost function as small as possible.
+- The hypothesis is a linear regression function (line) which fits the training data set as much as possible. So that we can use it to predict the output when input is given.
+- Our goal is to find the combination of theta0 & theta1 that makes cost function as small as possible.
 
 <br>
 
@@ -163,9 +163,9 @@ if __name__ == '__main__':
 
 #### Summary
 >
-- Lambda: As Andrew mentioned in his course, the value choice of lambda is very important and somehow it can be a little be tricky. In different training set, I have to manually adjust lambda in order to get the good thedas. It can be easily high to cause inifinty loop or low to cause timeout error.
-- The value choices for initializing thedas is not that important, but if you can pick a good starting point, it will definitely help.
-- In __[Resources]__, there are 2 data set for testing purpose, reader can downloads them for personal use only. After files are download, save the python codes and the data sets under the same directory. Make sure the csv file name reference as same as the file name.
+- Lambda: As Andrew mentioned in his course, the value of lambda is very important and somehow it can be a little be tricky. In different training sets, I have to manually adjust lambda in order to get the good thedas. It can be easily high which causes inifinty loop or low which causes timeout error.
+- The value choices for initializing thedas is not that important, but if you can pick a good starting point for thedas, it will definitely save you a lot of time.
+- In __[Resources]__, there are 2 data sets for testing purpose, readers can download them for personal use only. After files are download, save the python codes and the data sets under the same directory. Make sure the csv file name reference is same as the file name.
 
 <hr>
 
