@@ -175,6 +175,6 @@ if __name__ == '__main__':
 <hr>
 
 #### Resources:
-[Training Data Set Sample One](https://github.com/KratosOmega/KratosOmega.github.io/raw/master/assets/extra/resources/dataSet_1.csv)
+[Training Data Set Sample One](https://github.com/KratosOmega/omega-portfolio/tree/gh-pages/assets/extra/resources/dataSet_1.csv)
 <br>
-[Training Data Set Sample Two](https://github.com/KratosOmega/KratosOmega.github.io/raw/master/assets/extra/resources/dataSet_2.csv)
+[Training Data Set Sample Two](https://github.com/KratosOmega/omega-portfolio/tree/gh-pages/assets/extra/resources/dataSet_2.csv)
