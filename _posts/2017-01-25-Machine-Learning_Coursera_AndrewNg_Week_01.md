@@ -56,6 +56,9 @@ By feeding the learning algorithm with the training data set, we can get a "hypo
 - More details, please check [Machine Learning - Week One](https://www.coursera.org/learn/machine-learning/home/week/1)
 
 <br>
+
+<hr>
+
 <br>
 #### Python Implementation:
 
@@ -63,101 +66,76 @@ By feeding the learning algorithm with the training data set, we can get a "hypo
 
 ~~~ 
 #!/usr/bin/env python3
-import csv
-
-"""Learning Algorithm for Linear Regression (Coursera - Machine Learning by Andrew Ng)
-
-    This is an implementation of the Algorithm in Coursera - Machine Learning by Andrew Ng's Week 1
-"""
-##############################################################################################
-class LinearRegression(object):
-    """
-    :Description: initialize class variables
-    :type _trainingSet: list(list(string))
-    :type _theta0: float
-    :type _theta1: float    
-    :type _lambda: float
-    """
-    _trainingSet = []
-    _theta0 = 7.0
-    _theta1 = 7.0
-    # a good value need to be picked for _lambda
-    # too small will take forever to find the deltas
-    # too big will error out
-    _lambda = 0.001
-
-
-    def prepare(self):
+def getDataSet(self):
         """
-        :Description: used for preparing training set, read a csv file
-        and prepare the _trainingSet as a list of list of string 
-        (need inline covertion of string to float)
+        :Description: used for loading training dataset from csv file
+        :rtype: n-D array (numpy.ndarray)
         """
-        # Set up 
-        with open('dataSet.csv') as _file:
-            csvReader = csv.reader(_file)
-            dataSet = list(csvReader)
-        return dataSet
+        return loadtxt('dataSet.csv', delimiter = ',')
+~~~
 
+<br>
 
-    def gradientDescent(self, _trainingSet, _theta0, _theta1, _lambda):
+<br>
+
+~~~ 
+#!/usr/bin/env python3
+def gradientDescent(self, _lambda, theta, precision = 0.1):
         """
-        :Description: used for finding the best linear regression (best combination of theta0 & theta1)
-        :type _trainingSet: list(tuples(int))
-        :rtype: tuple
+        :Description: used for finding the best linear regression (best combination of theta0 & theta1).
+        Ideally, this method should be updated for being able to handle several sets of theta candidates
+        :rtype: n x 1 matrix (vector)
         """
-        m = len(_trainingSet)
-        print(m)
+        # load data set from csv file
+        dataSet = self.getDataSet()
+
+        # set the variables size
+        k = theta.size
+
+        # kth column is y
+        y = dataSet[:, k-1]
+
+        m = y.size
+
+        # set a "n x 2" matrix for interception data
+        X = ones(shape=(m, k))
+
+        for i in range(1, k):
+            X[:, i] = dataSet[:, i-1]
 
         while True:
-            sigma0 = 0
-            sigma1 = 0
-            # calculate Sigma part
-            for xy in _trainingSet:
-                sigma0 = sigma0 + ((_theta0 + _theta1 * float(xy[0])) - float(xy[1]))
-            for xy in _trainingSet:
-                sigma1 = sigma1 + ((_theta0 + _theta1 * float(xy[0])) - float(xy[1])) * float(xy[0])
-            # calculate delta part
-            delta0 = (1 / m) * sigma0
-            delta1 = (1 / m) * sigma1
-            # calculate theta part
-            _theta0 = _theta0 - _lambda * delta0
-            _theta1 = _theta1 - _lambda * delta1
+            predictions = X.dot(theta).flatten()
 
-            # for visualization purpose, not necessary code
-            print(delta0, ' - ', delta1)
+            precisions = []
 
-            # check if both deltas are small enough, 
-            # how small the deltas should be depends on accuracy requirement
-            if abs(delta0) < 0.1 and abs(delta1) < 0.1:
+            for i in range(k):
+                theta[i, 0] = theta[i, 0] - _lambda * (1.0 / m) * (((predictions - y) * X[:, i]).sum())
+                precisions.append(abs((1.0 / m) * (((predictions - y) * X[:, i]).sum())))
+
+            # -------------------------------------------------------------------------------------
+            # for observation purpose
+            display = ''
+            for p in precisions:
+                display = display + '       ' + str(p)
+            print(display)
+            # -------------------------------------------------------------------------------------
+
+            # check if both deltas are precisive enough, 
+            stop = True
+            for p in precisions:
+                if p > precision:
+                    stop = False
+                    break
+
+            if stop:
                 break
 
-        return (_theta0, _theta1)
-
-
-    def predication(self):
-        """
-        :Description: used for assemblying linear regression equation & output predications
-        """
-        # prepare the _trainingSet
-        self._trainingSet = self.prepare()
-        # prepare the hypothesis formula
-        _thetas = self.gradientDescent(self._trainingSet, self._theta0, self._theta1, self._lambda)
-        # press Ctrl+C to quit
-        while True:
-            print('##########################')
-            _input = float(input('_>: '))
-            print(_thetas[0] + _thetas[1] * _input)
-
-
-##############################################################################################
-# Script Section --- Testing Zone
-if __name__ == '__main__':
-#    unittest.main()
-    LR = LinearRegression()
-    LR.predication()
-##############################################################################################
+        return theta
 ~~~
+
+<br>
+
+<hr>
 
 <br>
 
@@ -166,16 +144,33 @@ if __name__ == '__main__':
 - Lambda: As Andrew mentioned in his course, the value of lambda is very important and somehow it can be a little be tricky. In different training sets, I have to manually adjust lambda in order to get the good thedas. It can be easily high which causes inifinty loop or low which causes timeout error.
 - The value choices for initializing thedas is not that important, but if you can pick a good starting point for thedas, it will definitely save you a lot of time.
 - In __[Resources]__, there are 2 data sets for testing purpose, readers can download them for personal use only. After files are download, save the python codes and the data sets under the same directory. Make sure the csv file name reference is same as the file name.
+- It is obviously important to pick a good value for lambda (the size of baby step) for our algorithm. However, I think it could be even more important to pick the good thedas. I try different combinations of thedas, and find out if I can plot the scatter first and use it to
+guess the "good" values for thedas, it will dramatically improve the calculation time and precision. Since we may have the issue of global minimum vs. local minimum, a good starting point (good thetas) will increase the chance for us to find the global minimum, which will lead us to a more precisive hypothesis solution. Also, it will cut off all the unnecessary calculation time for those "rediculous" theta guesses.
+- Thus, IMHO, my suggestion about working on this algorithm is to find 2 data pairs (2 points) in the training set, which a line that pass through them is visually good enough to become our prediction linear regression. Then use it to calculation the theta candidates.
+
+<br>
 
 <hr>
 
+<br>
+
 #### Reference:
 [Machine Learning - Week One](https://www.coursera.org/learn/machine-learning/home/week/1)
+<br>
+<br>
+>
+Thanks to Marcel Caraciolo's [post](http://aimotion.blogspot.com/2011/10/machine-learning-with-python-linear.html), it helps me a lot by using numpy to implement this algorithm since I was using List of List as my initial data structure.
 
 <br>
 <hr>
 
 #### Resources:
-[Training Data Set Sample One](https://github.com/KratosOmega/omega-portfolio/tree/gh-pages/assets/extra/resources/dataSet_1.csv)
+[Implementation Source File](https://raw.githubusercontent.com/KratosOmega/omega-portfolio/gh-pages/assets/extra/source_files/machine_learning_andrew_ng/linear_regression_learning_algorithm.py)
 <br>
-[Training Data Set Sample Two](https://github.com/KratosOmega/omega-portfolio/tree/gh-pages/assets/extra/resources/dataSet_2.csv)
+[Training Data Set Sample 0](https://raw.githubusercontent.com/KratosOmega/omega-portfolio/gh-pages/assets/extra/source_files/machine_learning_andrew_ng/dataSet_0.csv)
+<br>
+[Training Data Set Sample 1](https://raw.githubusercontent.com/KratosOmega/omega-portfolio/gh-pages/assets/extra/source_files/machine_learning_andrew_ng/dataSet_1.csv)
+<br>
+[Training Data Set Sample 2](https://raw.githubusercontent.com/KratosOmega/omega-portfolio/gh-pages/assets/extra/source_files/machine_learning_andrew_ng/dataSet_2.csv)
+<br>
+[Training Data Set Sample 3](https://raw.githubusercontent.com/KratosOmega/omega-portfolio/gh-pages/assets/extra/source_files/machine_learning_andrew_ng/dataSet_3.csv)
