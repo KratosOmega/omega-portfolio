@@ -21,8 +21,6 @@ from pylab import scatter, show, title, xlabel, ylabel, plot, contour
 
     EX: 3 variables will be theta[0, 0] = val0, theta[1, 0] = val1, theta[2, 0] = val2.
 
-    Thanks to Marcel Caraciolo's post [http://aimotion.blogspot.com/2011/10/machine-learning-with-python-linear.html],
-    it helps me a lot by using numpy to implement this algorithm since I was using List of List as my initial data structure.
 """
 
 ###################################################################################################
@@ -166,20 +164,3 @@ if __name__ == '__main__':
     LR.main()
 
 ###################################################################################################
-
-'''
-It is obviously import to pick a good value for lambda (the size of baby step) for our algorithm,
-however, I think it could be even more import to pick the good thedas.
-
-I try different combinations of thedas, and find out if I can plot the scatter first and use it to
-guess the possible value for thedas, it will dramatically improve the calculation time and precision.
-
-Since we may have global minimum vs local minimum issue, a good starting point will increase the chance 
-for us to find the global minimum, which leads to a more precisive prediction.
-
-Also, it will cut off all the unnecessary calculation time for those "rediculous" theta guesses.
-
-Thus, IMHO, my suggestion about working on this algorithm is to find 2 data pairs (2 points) in the training set,
-which a line that pass through them is visually good enough to become our prediction linear regression. Then use it 
-to calculation the theta candidates.
-'''
