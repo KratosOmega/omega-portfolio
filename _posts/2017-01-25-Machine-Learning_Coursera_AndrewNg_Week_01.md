@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: Linear Regression Learning Algorithm (Supervised)
-category: Artificial_Intelligence
+category: AI
 tags: [ 'python', 'algorithm', 'reading', 'machine_learning' ]
 comments: true
 ---
