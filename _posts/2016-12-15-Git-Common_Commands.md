@@ -30,6 +30,7 @@ git checkout -b <new_branch_name>
 git checkout -- .
 git checkout <changed_file_path>
 git branch -D <garbage_branch_name>
+git push origin -delete <garbage_branch_name>
 git status
 git diff
 git diff <changed_file_path>
@@ -54,19 +55,20 @@ git apply <patch_file_path>
 4. Remove ALL the changes which are not in staging area or committed yet.
 5. Remove particular non-staging or non-comitted changes.
 6. Remove an existed branch on your LOCAL machine. (Remote branch will not be affected)
-7. Display the current status of your local branch. (local file changes, comparison with remote version, etc.)
-8. Display all the changes of your local branch since last commit.
-9. Display the changes of a particular file in your local branch since last commit.
-10. Move ALL the changes (modified, new file, etc) to the staging area and ready for committing.
-11. Move a particular file to the staging area and ready for committing.
-12. Remove a particular file from the staging area. (undo the git add).
-13. Commit ALL the changes in staging area with a description (message is very important!) and ready for pushing to origin (remote).
-14. Display the commit history.
-15. Display the commit history in a more readble way.
-16. Push all the commits from local machine to the remote. (This will UPDATE the remote branch!!!)
-17. Merge a particular local branch to your current local branch WITHOUT fast forward (which means a individual commit will be created for this merge).
-18. Create a patch which covers the changes between 2 commit points.
-19. Apply a patch to the current branch.
+7. Remove an existed branch on remote.
+8. Display the current status of your local branch. (local file changes, comparison with remote version, etc.)
+9. Display all the changes of your local branch since last commit.
+10. Display the changes of a particular file in your local branch since last commit.
+11. Move ALL the changes (modified, new file, etc) to the staging area and ready for committing.
+12. Move a particular file to the staging area and ready for committing.
+13. Remove a particular file from the staging area. (undo the git add).
+14. Commit ALL the changes in staging area with a description (message is very important!) and ready for pushing to origin (remote).
+15. Display the commit history.
+16. Display the commit history in a more readble way.
+17. Push all the commits from local machine to the remote. (This will UPDATE the remote branch!!!)
+18. Merge a particular local branch to your current local branch WITHOUT fast forward (which means a individual commit will be created for this merge).
+19. Create a patch which covers the changes between 2 commit points.
+20. Apply a patch to the current branch.
 
 <br>
 
