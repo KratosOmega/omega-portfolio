@@ -30,7 +30,7 @@ git checkout -b <new_branch_name>
 git checkout -- .
 git checkout <changed_file_path>
 git branch -D <garbage_branch_name>
-git push origin -delete <garbage_branch_name>
+git push origin --delete <garbage_branch_name>
 git status
 git diff
 git diff <changed_file_path>
