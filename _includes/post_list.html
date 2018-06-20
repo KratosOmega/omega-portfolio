@@ -1,19 +1,27 @@
 
 <!-- Post List Start -->
 
-<h4 align="left">
-    <strong>{{ post.date | date_to_string }}</strong>
-    <small>.
-        <a class="category" href="{{site.baseurl}}/categories/{{ post.category | downcase }}.html">
+<div class="list-group-item">
+    <h4 align="left">
+        <strong>{{ post.date | date_to_string }}</strong>
+
+        <!--  <br class="visible-xs-block">  -->
+
+        <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+
+        <a href="{{site.baseurl}}{{post.url}}">
+            <strong>{{ post.title }}</strong>
+        </a>
+
+        <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+
+        <a class="badge badge-primary category" href="{{site.baseurl}}/categories/{{ post.category | downcase }}.html">
             {{ post.category }}
         </a>
-        .</small>
-    <br class="visible-xs-block">
-    <a href="{{site.baseurl}}{{post.url}}">
-        <strong>{{ post.title }}</strong>
-    </a>
-    <br class="visible-xs-block">
-    <small><a href="{{site.baseurl}}{{post.url}}#disqus_thread">Comments</a></small>
-</h4>
+        
+        <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
 
+        <small><a href="{{site.baseurl}}{{post.url}}#disqus_thread">Comments</a></small>
+    </h4>
+</div>
 <!-- Post List End -->
