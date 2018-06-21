@@ -49,26 +49,25 @@ $(document).ready(function(){
     //
 
     // ********************************************************************************************************************* click to switch exp & skill set
-    $(".default-exp-hide").hide();
-    $("#research").show();
+    expSectionCtrl("research");
     //
-    $("#showResearch").click(function(){
-        $(".default-exp-hide").hide();
-        $("#research").show();
-        //document.getElementById("#showResearch").className = "btn btn-default active";
-        //document.getElementById("#showWebDev").className = "btn btn-default";
+    $(".showResearch").click(function(){
+        expSectionCtrl("research");
     });
     //
-    $("#showWebDev").click(function(){
-        $(".default-exp-hide").hide();
-        $("#webDev").show();
-        //document.getElementById("#showWebDev").className = "btn btn-default active";
-        //document.getElementById("#showResearch").className = "btn btn-default";
+    $(".showWebDev").click(function(){
+        expSectionCtrl("webDev");
     });
     //
 });
 
+function expSectionCtrl(secName){
+    $(".default-exp-hide").hide();
+    $(".exp-tabs").hide();
 
+    $("#" + secName).show(); //show exp target section
+    $("#active-" + secName).show(); //switch exp tabs
+}
 
 
 
