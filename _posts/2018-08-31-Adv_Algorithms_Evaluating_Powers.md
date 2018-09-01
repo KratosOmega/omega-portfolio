@@ -23,7 +23,7 @@ comments: true
 ###### Image to help understand the idea of Left-to-Right method:
 <br>
 ![Formulas]({{site.baseurl}}/assets/img/posts_img/2018-08-31-Adv_Algorithms_Evaluating_Powers/karatsuba.exponentiation.gif){:class="img-responsive"}
-(Figure 1)
+([Figure 1](http://www.excel-ticker.com/calculation-of-very-large-numbers-in-excel-part-4-exponentiation/))
 
 <br>
 
@@ -116,5 +116,4 @@ def getDataSet(self):
 
 #### Resources:
 
-[Figure 1](http://www.excel-ticker.com/calculation-of-very-large-numbers-in-excel-part-4-exponentiation/)
 <br>
