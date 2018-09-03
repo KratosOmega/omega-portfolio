@@ -150,7 +150,7 @@ comments: true
 >-* three variables X, Y, Z<br>
 >-* their joint probability p(X, Y, Z)<br>
 >-* and X \independent Y | Z<br>
-> \begin{equation}p(X,\;Y) = \sum_{Z}\underbrace{p(X\;|\;Z)p(Y\;|\;Z)p(Z)}_{\text{cond. indep.}}\;\neq\;\sum_{Z}\underbrace{p(X\;|\;Z)p(Z)}_{p(X)}\sum_{Z}\underbrace{p(Y\;|\;Z)p(Z)}_{p(Y)}\end{equation}
+> \begin{equation}p(X,\;Y) = \sum_{Z}\underbrace{p(X\;|\;Z)p(Y\;|\;Z)p(Z)}\_{\text{cond. indep.}}\;\neq\;\sum_{Z}\underbrace{p(X\;|\;Z)p(Z)}\_{p(X)}\sum_{Z}\underbrace{p(Y\;|\;Z)p(Z)}\_{p(Y)}\end{equation}
 >- If X and Y are not conditionally independent, they are conditionally dependent, which written as:
 > \begin{equation}X\;\unicode{x2AEA}\;Y\;|\;Z\end{equation}
 >- And we also have:
