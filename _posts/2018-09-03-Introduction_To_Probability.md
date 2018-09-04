@@ -109,6 +109,8 @@ comments: true
 - #### Conditional Probability & Bayes' Rule:
 >- The probability of event x conditioned on knowing event y (or more shortly, the probability of x given y) is defined as:
 >\begin{equation}p(x\;|\;y) \equiv \frac{p(x, \;y)}{p(y)} = \frac{p(y\;|\;x)p(x)}{p(y)} \;\;\; (Bayes' Rule)\end{equation}
+> where
+>\begin{equation}p(y) = \sum_{x} p(x)p(y\;|\;x) = \int p(x,\;y)dx = \int p(x)p(y\;|\;x)dx\end{equation}
 
 - #### Probability Tables:
 >- Large numbers of variables
@@ -138,7 +140,7 @@ comments: true
 >- Factorisation: ?
 
 - #### Conditional Independence
->- Twoo sets of variables X and Y are independent of each other given the state of the set of variable Z, write as follow:
+>- Two sets of variables X and Y are independent of each other given the state of the set of variable Z, write as follow:
 >\begin{equation}X \; \unicode{x2AEB} \; Y \; | \; Z\end{equation}
 > It means that:
 > \begin{equation}p(X,\;Y\;|\;Z) = p(X\;|\;Z)p(Y\;|\;Z)\;\;\; and \;\;\;p(X\;|\;Y,\;Z) = p(X\;|\;Z)\end{equation}
@@ -173,18 +175,22 @@ comments: true
 >Our interest is then the quantity:
 >\begin{equation}p(\theta\;|\;D) = \frac{p(D\;|\;\theta)p(\theta)}{p(D)} = \frac{p(D\;|\;\theta)p(\theta)}{\int_{\theta}p(D\;|\;\theta)p(\theta)}\end{equation}
 >- Generative model of the dataset:
->\begin{equation}p(D\;|\;\theta)\;\;\;a.k.a\;\;\;(\text{likelihood})\end{equation}
+>\begin{equation}p(D\;|\;\theta)\;\;\;a.k.a\;\;\;(\text{likelihood, or sampling distribution})\end{equation}
 > it works well with physical model of the world which typically postulate how to generate observed phenomena, assuming we know the model.
 >- Prior belief about which variable values are appropriate:
->\begin{equation}p(\theta)\;\;\;a.k.a\;\;\;(\text{prior})\end{equation}
+>\begin{equation}p(\theta)\;\;\;a.k.a\;\;\;(\text{prior distribution})\end{equation}
 >- Infereed posterior distribution of the variable in light of the observed data:
->\begin{equation}p(\theta\;|\;D)\;\;\;a.k.a\;\;\;(\text{posterior})\end{equation}
->- Observed dataset:
+>\begin{equation}p(\theta\;|\;D)\;\;\;a.k.a\;\;\;(\text{posterior distribution})\end{equation}
+>- Unknown but observable dataset:
 >\begin{equation}p(D)\;\;\;a.k.a\;\;\;(\text{evidence or marginal likelihood})\end{equation}
 >- The term _likelihood_ is used for the probability that a model generates observed data.
 >- More fully, if we condition on the model _M_, we have:
 >\begin{equation}p(\theta\;|\;D,\;M) = \frac{p(D\;|\;\theta,\;M)p(\theta\;|\;M)}{p(D\;|\;M)}\end{equation}
 > where we see the role of the likelihood p(D|&Theta;, M) and marginal likelihood p(D|M). Thus, the _marginal likelihood_ is also called the _model likelihood_.
+>- Note:
+>&nbsp;&nbsp; * **prior**: means it is not conditional on a previous observation of the process.
+>&nbsp;&nbsp; * **posterior**: means it is conditional on a previous observation of the process.
+>&nbsp;&nbsp; * **predictive**: means it is the distribution for a quantity that is observable.
 
 <br>
 
