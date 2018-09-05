@@ -1,8 +1,8 @@
 ---
 layout: post
 section-type: post
-title: Machine Learning - Introduction
-category: Machine Learning
+title: ML - Introduction
+category: Machine_Learning
 tags: [ 'machine_learning', 'ai', 'reading' ]
 comments: true
 ---
