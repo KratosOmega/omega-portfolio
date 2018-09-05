@@ -118,4 +118,6 @@ def getDataSet(self):
 This post is derived from book [Algorithms: Foundations and Design Strategies](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwjXxpDXqZvdAhUF9IMKHd-EBBMQFjAAegQIChAB&url=https%3A%2F%2Fwww.amazon.com%2FAlgorithms-Foundations-Strategies-Kenneth-Berman%2Fdp%2F0692993762&usg=AOvVaw3nkti_AUzVC1V8GF_CMFlH) as well as [Ph.D. Berman's](https://eecs.ceas.uc.edu/~berman/) CS7081 course in University of Cincinnati.
 <br><br>
 This post should ONLY be used for course reference and self-studying. It should NEVER be used for any business purpose without [Ph.D. Berman's](https://eecs.ceas.uc.edu/~berman/)'s authorization.
+<br><br>
+>- [Modular exponentiation](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwiz6PKJrqTdAhVS21MKHWHvAv8QFjAAegQIBhAB&url=https%3A%2F%2Fwww.khanacademy.org%2Fcomputing%2Fcomputer-science%2Fcryptography%2Fmodarithmetic%2Fa%2Fmodular-exponentiation&usg=AOvVaw3_orSdiVr3mthy1JOxWFvL)
 <br>
