@@ -93,14 +93,14 @@ comments: true
 > -- start with the **most specific possible** hypothesis in _H_,<br>
 > -- then generalize this hypothesis each time it fails to cover an observed positive training example.<br>
 
-> FIND-S Algorithm<br>
-> 1. Initialize _h_ to the most specific hypothesis in _H_<br>
-> 2. For each positive training istance _x_<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;For each attribute constraint _a<sub>i</sub>_ in _h_<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the constraint _a<sub>i</sub>_ is satisfied by _x_<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Then do nothing<br>
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else replace _a<sub>i</sub>_ in _h_ by the next more general constraint that is satisfied by _x_<br>
-> 3. Output hypothesis _h_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;FIND-S Algorithm<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;1. Initialize _h_ to the most specific hypothesis in _H_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;2. For each positive training istance _x_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For each attribute constraint _a<sub>i</sub>_ in _h_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If the constraint _a<sub>i</sub>_ is satisfied by _x_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Then do nothing<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else replace _a<sub>i</sub>_ in _h_ by the next more general constraint that is satisfied by _x_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;3. Output hypothesis _h_<br>
 
 >- In the general case, as long as we assume that the hypothesis space _H_ contains a hypothesis that describes the true target concept _x_ and that the training data contains no errors, then the current hypothesis _h_ can never require a revision in response to a negative example.<br>
 <br>
@@ -131,7 +131,7 @@ comments: true
 > _Training example X_ is consistent with _h_ depends on the target concept, and in particular, whether _h(x) = c(x)_.<br>
 <br>
 >- **Version Space**: is denoted as _VS<sub>H, D</sub>_, with respect to hypothesis space _H_ and training examples _D_, is the subset of hypotheses from _H_ consistent with the training examples in _D_.
-> \begin{equation}VS_{H,\;D}\;\equiv\;{h\;\in\;H\;|\;Consistent(h,\;D)}\end{equation}
+> \begin{equation}VS_{H,\;D}\;\equiv\;\\{h\;\in\;H\;|\;Consistent(h,\;D)\\}\end{equation}
 > The set of _all_ describable hypotheses that CANDIDATE-ELIMINATION algorithm finds (represents), are _consistent_ with thef observed training examples, with respect to the hypothesis space _H_ and the training examples _D_, because it contains all plausible versions of the target concept.
 
 <br>
@@ -146,14 +146,28 @@ comments: true
 >- Advantage of L-T-E is guaranteed to output all hypotheses consistent with the training data.
 >- Disadvantage of L-T-E is that it requires exhaustively enumerating all hypotheses in _H_.
 
-> The LIST-THEN-ELIMINATE Algorithm<br>
-> 1. _VersionSpace &larr;_ a list containing every hypothesis in _H_<br>
-> 2. For each training example, <x, c(x)><br>
-> &nbsp;&nbsp;&nbsp;&nbsp;remove from _VersionSpace_ any hypothesis _h_ for which _h(x) &ne; c(x)_
-> 3. Output the list of hypotheses in _VersionSpace_<br>
 <br>
 
 > #### 5.3 A More Compact Representation for Version Spaces
+<br>
+>- The CANDIDATE-ELIMINATION algorithm represents the **version space** by storing ONLY its **most general members** (labeled as _G_), and its **most specific** (labeled as _S_).
+>- Given only these two sets _S_ & _G_, it's possible to enumerate all members of the version space as needed by generating the hypotheses that lie between these two sets in the general-to-specific partial ordering over hypotheses.
+>- The general and specific boundary sets that delimit the version space within the partially ordered hypothesis space.
+
+> &nbsp;&nbsp;&nbsp;&nbsp;The LIST-THEN-ELIMINATE Algorithm<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;1. _VersionSpace &larr;_ a list containing every hypothesis in _H_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;2. For each training example, <x, c(x)><br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove from _VersionSpace_ any hypothesis _h_ for which _h(x) &ne; c(x)_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;3. Output the list of hypotheses in _VersionSpace_<br>
+
+>- The **general boundary** _G_, with respect to hypothesis space _H_ and training data _D_, is the set of maximally general members of _H_ consistent with _D_.
+> \begin{equation}G\;\equiv\;\\{g\;\in\;H\;|\;Consistent(g,\;D)\wedge(\urcorner\exists g'\;\in\;H)[(g'\;>_{g}\;g)\wedge Consistent(g',\;D)]\\}\end{equation}
+>- The **specific boundary** _S_, with respect to hypothesis space _H_ and training data _D_, is the set of minimally general (i.e., maximally specific) members of _H_ consistent with _D_.
+> \begin{equation}S\;\equiv\;\\{s\;\in\;H\;|\;Consistent(s,\;D)\wedge(\urcorner\exists s'\;\in\;H)[(s'\;>_{g}\;s)\wedge Consistent(s',\;D)]\\}\end{equation}
+>- **Version space representation theorem**. Let _X_ be an arbitrary set of instances and let _H_ be a set of boolean-valued hypotheses defined over _X_. Let _c : X &rarr; {O,1)_ be an arbitrary target concept defined over _X_, and let _D_ be an arbitrary set of training examples _{<x,c(x)>}_. For all _X_, _H_, _c_, and _C_ such that _S_ and _G_ are well defined,
+> \begin{equation}VS_{H,\;D}\;=\;\\{h\;\in\;H\;|\;(\exists s\;\in\;S)(\exists g\;\in\;G)(g\;\geq_{g}\;h\;\geq_{g}\;s)\\}\end{equation}
+
+<br>
 
 > #### 5.4 CANDIDATE-ELIMINATION Learning Algorithm
 
