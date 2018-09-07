@@ -128,8 +128,20 @@ comments: true
 - #### 3.1 Issues in Machine Learning<br>
 ...
 
+### 4. Summary
 <br>
-
+>- Machine learning algorithms have proven to be of great practical value in a variety of application domains. They are especially useful in 
+> -- (a) data mining problems where large databases may contain valuable implicit regularities that can be discovered automatically (e.g., to analyze outcomes of medical treatments from patient databases or to learn general rules for credit worthiness from financial databases); 
+> -- (b) poorly understood domains where humans might not have the knowledge needed to develop effective algorithms (e.g., human face recognition from images);
+> -- (c) domains where the program must dynamically adapt to changing conditions (e.g., controlling manufacturing processes under changing supply stocks or adapting to the changing reading interests of individuals).
+<br>
+>- Machine learning draws on ideas from a diverse set of disciplines, including artificial intelligence, probability and statistics, computational complexity, information theory, psychology and neurobiology, control theory, and philosophy.
+<br>
+>- A well-defined learning problem requires a well-specified task, performance metric, and source of training experience.
+<br>
+>- Designing a machine learning approach involves a number of design choices, including choosing the type of training experience, the target function to be learned, a representation for this target function, and an algorithm for learning the target function from training examples.
+<br>
+>- Learning involves search: searching through a space of possible hypotheses to find the hypothesis that best fits the available training examples and other prior constraints or knowledge. Much of this book is organized around different learning methods that search different hypothesis spaces (e.g., spaces containing numerical functions, neural networks, decision trees, symbolic rules) and around theoretical results that characterize conditions under which these search methods converge toward an optimal hypothesis.
 <br>
 
 <hr>
