@@ -110,6 +110,19 @@ def getDataSet(self):
 <br>
 
 <br>
+<hr>
+<br>
+
+### Using Modular Exponentiation for Encryption
+>- Given a senario, first Alice sends Bob the value of an integer base b and an integer p. Now Alice, Bob, and Eve all know b and p. Then Alice chooses a large integer n, (which ONLY she knows), and sends Bob the value b<sup>n</sup> mod p. Then Bob chooses a large integer m (which ONLY he knows), and sends Eve b<sup>m</sup> mod p. Now they ALL know values b, p, b<sup>n</sup> mod p, and b<sup>m</sup> mod p.
+<br>
+>- Then let _k = (b<sup>n</sup> mod p)(b<sup>m</sup> mod p) = b<sup>m+n</sup> mod p_ ==> NET SECURITY
+<br>
+>- Alice: (b<sup>m</sup> mod p)<sup>n</sup> = b<sup>mn</sup>(mode p)
+<br>
+>- Bob: (b<sup>n</sup> mod p)<sup>m</sup> = b<sup>mn</sup>(mode p)
+
+<br>
 <br>
 
 <hr>
