@@ -170,8 +170,39 @@ comments: true
 <br>
 
 > #### 5.4 CANDIDATE-ELIMINATION Learning Algorithm
+<br>
+>- The CANDIDATE-ELIMINATION algorithm computes the version space containing all hypotheses from _h_ that are consistent with an observed sequence of training examples.<br>
+<br>
+>- The algorithm begins by initializing the version space to the set of all hypotheses in _H_:<br>
+> -- initializing the _G_ boundary set to contain **the most general** hypthesis in _H_ as _G<sub>0</sub>_.<br>
+> -- initializing the _S_ boundary set to contain **the most specific (least general)** hypthesis in _H_ as _S<sub>0</sub>_.<br>
+<br>
+> These 2 boundary sets delimit the entire hypothesis spaces, because every other hypothesis in _H_ is bothe more general than _S<sub>0</sub>_ and more specific than _G<sub>0</sub>_.<br>
+<br>
+>- As each training example is considered, the _S_ and _G_ boundary sets are generalized ans specialized to eliminate from the version space any hypotheses found inconsistent with the new training example. After all examples have been proessed, the computed version space contains all the hypotheses consistent with the training examples and only these hyptheses.
+
+> &nbsp;&nbsp;&nbsp;&nbsp;The CANDIDATE-ELIMINATION Algorithm<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;Initialize _G_ to the set of maximally general hypotheses in _H_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;Initialize _S_ to the set of maximally specific hypotheses in _H_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;For each training example _d_, do:<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;* If _d_ is a positive example:<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Remove from _G_ any hypothesis inconsistent with _d_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* For each hypothesis _s_ in _S_ that is not consistent with _d_:<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Remove _s_ from _S_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Add to _S_ all minimal generalizations _h_ of _s_ such that:<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* _h_ is consistent with _d_, and some member of _G_ is more general than _h_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Remove from _S_ any hypothesis that is more genreal than another hypothesis in _S_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;* If _d_ is a negative example:<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Remove from _S_ any hypothesis inconsistent with _d_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* For each hypothesis _g_ in _G_ that is not consistent with _d_:<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Remove _g_ from _G_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Add to _G_ all minimal generalizations _h_ of _g_ such that:<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* _h_ is consistent with _d_, and some member of _S_ is more specific than _h_<br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Remove from _G_ any hypothesis that is less genreal than another hypothesis in _G_<br>
 
 > #### 5.5 An Illustrative Example
+<br>
+>- The _S_ boundary of the version space forms a summary of the previously encountered positive examples that can be used to determine whether any given hypothesis is consistent with these examples. Any hypothesis more general than _S_ will, by definition, cover any example that _S_ covers and thus will cover any past positive example.
 
 <br>
 <hr>
@@ -180,10 +211,27 @@ comments: true
 ### 6. Remarks on Version Spaces and CANDIDATE-ELIMINATION
 <br>
 > #### 6.1 Will the CANDIDATE-ELIMINATION Algorithm Converge to the Correct Hypothesis?
+<br>
+>- The version space learned by the CANDIDATE-ELIMINATION algorithm will converge toward the hypothesis that correctly describes the target concept, provided:<br>
+> -1) there are NO errors in the training examples.<br>
+> -2) theere is some hypothesis in _H_ that correctly describes the target concept.<br>
+<br>
+>- The target concept is exactly learned when the _S_ and _G_ boundary sets coverge to a _single, identical,_ hypothesis.<br>
 
+>- Given sufficient (incorrect) training data, the learner will eventually detect an inconsistency by noticing that the _S_ and _G_ boundary sets eventually converge to an **empty** version space. The empty VS indicates that there is **no** hypothesis in _H_ consistent with all observed training examples. A similar symptom will appear when the training examples are correct, but the target concept cannot be described in the hypthesis representation.
+
+<br>
 > #### 6.2 What Training Example Should the Learner Request Next?
+>- **Query** is used to refer to the instances constructed by the learner, which are then classified by an external oracle.
+> e.g.: learner may conduct experiments in nature, like build new bridges and then allow nature to classify them as stable or unstable.
+>- Learner uses _query_ to request the next training examples, choose an instance that would be classified positive by some ofthese hypotheses, but negative by others.
+>- The optimal query strategy for a concept learner is to generate instances that satisfy exactly **half** the hypotheses in the current version space. ==> the size of the version space is reduced by half with each new example, and the correct target concept can therefore be found with only &#9484;log<sub>2</sub>\|VS\|&#9488; experiments.
+
+<br>
 
 > #### 6.3 How Can Partially Learned Concepts Be Used?
+<br>
+>- Suppose that no additional training examples are available beyond what we have, but that the learner is now required to classify new instances that it has not yet observed. Even though the version space at this point multiple hypotheses, indicating that the target concept has not yet been fully learned, it is possible to classify certain examples with the same degree of confidence as if the target concept had been uniquely identified.
 
 <br>
 <hr>
@@ -191,33 +239,106 @@ comments: true
 
 ### 7. Inductive Bias
 <br>
+>As discussed above, the CANDIDATE-ELIMINATION Algorithm will converge toward the true target concept provided it is given accurate training examples and provided its initial hypothesis space contains the target concept. 
+>- What if the target concept is not contained in the hypothesis space? 
+>- Can we avoid this difficulty by using a hypothesis space that includes every possible hypothesis? 
+>- How does the size of this hypothesis space influence the ability of the algorithm to generalize to unobserved instances? 
+>- How does the size of the hypothesis space influence the number of training examples that must be observed? 
+
+> These are fundamental questions for inductive inference in general. As we shall see, though, the conclusions we draw from this analysis will apply to any concept learning system that outputs any hypothesis consistent with the training data.
+
 > #### 7.1 A Biased Hypothesis Space
+<br>
+>- Suppose we wish to assure that the hypothesis space contains the unknown target concept. The obvious solution is to enrich the hypothesis space to include _every possible_ hypothesis.
+> e.g.: Since we restricted the hypothesis space to include only **conjunctions** of attribute values, the hypothesis space is unable to represent even simple **disjunctive** target concepts.
+
 
 > #### 7.2 An Unbiased Learner
+<br>
+>- The obvious solution to the problem of assuring that the target concept is in the hypothesis space _H_ is to provide a hypothesis space capable of representing **every teachable concept**; that is, it is capable of representing **every possible subset** of the instances _X_. In general, the set of all subsets of a set _X_ is called the **power set** of _X_. 
+>- How many possible concepts can be defined over the set of instances? (how large is the power set of _X_?) In general, the number of distinct subsets that can be defined over a set _X_ containing |_X_| elementt is 2<sup>|_X_|</sup>.
 
 > #### 7.3 The Futility of Bias-Free Learning
+<br>
+>- **Fundamental property** of inductive inderence: a learner that makes no a priori assumptions regarding the identity of the target concept has no rational basis for classifying any unseen instances.<br>
+<br>
+> The only reason that the CANDIDATE-ELIMINATION algorithm was able to generalize beyond the observed training examples is that it was biased by the implicit assumption that the target concept could be represented by a conjunction of attribute values.<br>
+<br>
+> In cases where this assumption is correct (and the training examples are error-free), its classification of new instances wil lalso be correct.<br>
+<br>
+> If this assumption is incorrect, however, it is certain that the CANDIDATE-ELIMINATION algorithm wil lmisclassify at least some instances from _X_.<br>
+
+>- Because inductive learning requires some form of **prior assumptions** (a.k.a. inductive bias), it's useful to characterize different learning approaches by the inductive bias they employ.
+>- The key idea we wish to capture here is the policy by which the learner generalizes beyond the observed training data, to infer the classification of new instances. Therefore, consider the general setting in which an arbitrary learning algorithm _L_ is provided an arbitrary set of training data _D<sub>c</sub>_ = _{<x, c(x)}_ of some arbitrary target concept _x_. After training, _L_ is asked to classify a new instance _x<sub>i</sub>_. Let _L(x<sub>i</sub>, D<sub>c</sub>)_ denote the classificiation (e.g., positive or negative) that _L_ assigns to x<sub>i</sub> after learning from the training data _D<sub>c</sub>_. We can describe this inductive inference step performed by _L_ as follow:
+> \begin{equation}(D_{c} \wedge x_{i})\succ L(x_{i}, D_{c})\end{equation}
+> where the notation _y &#8881; z_ indicates that _z_ is inductively inferred from _y_.
+<br><br>
+>- Because _L_ is an inductive learning algorithm, the result _L(x<sub>i</sub>, D<sub>c</sub>)_ that it infers  will not in general be provably correct; that is, the classification _L(x<sub>i</sub>, D<sub>c</sub>)_ need not follow deductively from the training data _D<sub>c</sub>_ and the description of the new instance _x<sub>i</sub>_. However, it is interesting to ask what additional assumptions could be added to _D<sub>c</sub> &#8896; x<sub>i</sub>_ so that _L(x<sub>i</sub>, D<sub>c</sub>)_ would follow deductively. We define the inductive bias of _L_ as this set of additional assumptions. More precisely, we define the inductive bias of _L_ to be the set of assumptions _B_ such that for all new instances _x<sub>i</sub>_
+> \begin{equation}(B\;\wedge\;D_{c}\;\wedge\;x_{i})\;\vdash\;L(x_{i},\;D_{c})\end{equation}
+> where the notation _y &#8866; z_ indicates that _z_ follows deductively from _y_ (i.e., that z is provable from y). Thus, we define the inductive bias of a learner as the set of additional assumptions _B_ sufficient to justify its inductive inderences as deductive inferences.
+
+> To summarize:
+<br>
+> Definition: Consider a concept learning algorithm _L_ for the set of instances _X_. Let _c_ be an arbitrary concept defined over _X_, and let _D<sub>c</sub> = {<x, c(x)}_ be an arbitrary set of training examples of _c_. Let _L(x<sub>i</sub>, D<sub>c</sub>)_ denote the classification assigned to the instance _x<sub>i</sub>_ by _L_ after training on the data _D<sub>c</sub>_. The **inductive bias** of _L_ is any minimal set of asserttions _B_ such that for any target concept _x_ and corresponding training examples _D<sub>c</sub>_
+> \begin{equation}(\forall x_{i}\;\in\;X)[(B\;\wedge\;D_{c}\;\wedge\;x_{i})\;\vdash\;L(x_{i},\;D_{c})]\end{equation}
+
+>- What is the inductive bias of the CANDIDATE-ELIMINATION algorithm?
+<br>
+> To answer this, let us specify _L(x<sub>i</sub>, D<sub>c</sub>)_ exactly for this algorithm: given a set of data _D<sub>c</sub>_, the CANDIDATE-ELIMINATION algorithm will first compute the version space _VS<sub>H,D<sub>c</sub></sub>_, then classify the new instance _x<sub>i</sub>_ by a vote among hypotheses in this version space. Here let us assume that it will output a classification for _x<sub>i</sub>_ only if this vote among version space hypotheses is unanimously positive or negative and that it will not output a classificaiton otherwise. Given this definition of _L(x<sub>i</sub>, D<sub>c</sub>)_ for the CANDIDATE-ELIMINATION algorithm, what is its inductive bias? It is simply the assumptoin _c &isin; H_. Given this assumption, each inductive inference performed by the CANDIDATE-ELIMINATION algorithm can be justified deductively.
+
+>- To see why the classification _L(x<sub>i</sub>, D<sub>c</sub>)_ follows deductively from _B = {c &isin; H}_, together with teh data _D<sub>c</sub>_ and description of the instance _x<sub>i</sub>_, consider the following argument.
+<br>
+> -- First, notice that if we assume _c &isin; H_ then it follows deductively that _c &isin; VS<sub>H,D<sub>c</sub></sub>_. This follows form _c &isin; H_, from the definition of the version space _VS<sub>H,D<sub>c</sub></sub>_ as the set of all hypotheses in _H_ that are consistent with _D<sub>c</sub>_, and from our definition of _D<sub>c</sub> = {<x, c(x)}_ as training data consistent with the target concept _c_.<br>
+> -- Second, recall that we defined the classification _L(x<sub>i</sub>, D<sub>c</sub>)_ to be the unanimous vote of all hypotheses in the version space. Thus, if _L_ outputs the classification _L(x<sub>i</sub>, D<sub>c</sub>)_, it must be the case the every hypothesis in _VS<sub>H,D<sub>c</sub></sub>_ also produces this classification, including the hypothesis _c &isin; VS<sub>H,D<sub>c</sub></sub>_. Therefore _c(x<sub>i</sub>) = L(x<sub>i</sub>, D<sub>c</sub>)_.
+
+>- To summarize, the CANDIDATE-ELIMINATION algorithm defined in this fashion can be characterized by the following bias:<br>
+> **Inductive bias of CANDIDATE-ELIMINATION algorithm**: The target concept _c_ is contained in the given hypothesis space _H_.
+
+<br>
+
+![Modeling inductive system by equivalent deductive system]({{site.baseurl}}/assets/img/posts_img/2018-09-04-Machine_Learning_Tom_Michell-Chapter_2/Inductive_system-Deductive_system.png){:class="img-responsive"}
+([Figure 1: Modeling inductive systems by equivalent deductive system]())
+
+<br>
+
+> In **Figure 1**, The input-output behavior of the CANDIDATE-ELIMINATION algorithm using a hypothesis space _H_ is identical to that of a deductive theorem prover utilizing the assertion "_H_ contains the target concept." This assertion is therefore called the _inductive bias_ of the CANDIDATE-ELIMINATION algorithm. Characterizing inductive systems by their inductive bias allows modeling them by their equivalent deductive systems. This provides a way to compare inductive systems according to their policies for generalizing beyond the observed training data.
+
+>- Advantages of viewing inductive inference systems in terms of their inductive bias:<br>
+> -- 1) It provides a nonprocedural means of characterizing their policy for generalizing beyond the observed data.<br>
+> -- 2) It allows comparison of different learners according to the strength of the inductive bias they employ.
+
+> Consider the following 3 learning algorithms, listed from weakest to strongest bias:
+>- **ROTE-LEARNER algorithm**: L:earning corresponds simply to storing each observed training example in memory. Subsequent instances are classified by looking them up in memory. If the instance is found in memory, the stored classification is returned. Otherwise, the system refuses to classify the new instance.<br>
+<br>
+> The ROTE-LEARNER has **no inductive bias**. The classifications it provides for new instances follow deductively from the observed training examples, with no additional assumptions required.<br>
+<br>
+>- **CANDIDATE-ELIMINATION algorithm**: New instances are classified only in the case where all members of the current version space agree on the classification. Otherwise, the system refuses to classify the new instance.<br>
+<br>
+> The CANDIDATE-ELIMINATION algorithm has a **stronger inductive bias**: that the target concept can be represented in its hypothesis space. Because it has a stronger bias, it will classify some instances that the ROTE-LEARNER will not. Of course the correctness of such classifications will depend completely on the correctness of this inductive bias.<br>
+<br>
+>- **FIND-S algorithm**: This algorithm, described earlier, finds the most specific hypothesis consistent with the training examples. It then uses this hypothesis to classify all subsequent instances.<br>
+<br>
+> The FIND-S algorithm has an **even stronger inductive bias**. In addition to the assumption that the target concept can be descirbed in its hypothesis space, it has an additional inductive bias assumption: that all instances are negative instances unless the opposite is entailed by its other knowledge.<br>
+<br>
+>- It's useful to keep in mind the means of characterizing the inductive inference methods and the strength of their inductive bias. More strongly biased methos make more inductive leaps, classifying a greater proportion of unseen instances.<br>
+> -- Some inductive biases correspond to categorical assumptions that completely rule out certain concepts, such as the bias "the hypothesis space _H_ includes the target concept."<br>
+> --  Other inductive biases merely rank order the hypotheses by stating preferences such as "more specific hypotheses are preferred over more general hypotheses."<br>
+> -- Some biases are implicit in the learner and are unchangeable by the learner.<br>
 
 <br>
 <hr>
 <br>
 
 ### 8. Summary
-> 3 approach to concept learning:
->- FIND-S Algorithm
->- CANDIDATE-ELIMINATION Algorithm
->- 
 <br>
-> ...
->- ...
->- ...
-
-> ...
-
-> ...
-
-> ...
-
-
+>- Concept learning can be cast as a problem of searching through a large predefined space of potential hypotheses.
+>- The general-to-specific partial ordering of hypotheses, which can be defined for any concept learning problem, provides a useful structure for organizing the search through the hypothesis space.
+>- The FIND-S algorithm utilizes this general-to-specific ordering, performing a specific-to-general search through the hypothesis space along one branch of the partial ordering, to find the most specific hypothesis consistent with the training examples.
+>- The CANDIDATE-ELIMINATION algorithm  utilizes this general-to-specific ordering to compute the version space (the set of all hypotheses consistent with the training data) by incrementally computing the sets of maximally specific (S) and maximally general (G) hypotheses.
+>- Because the S and G sets delimit the entire set of hypotheses consistent with the data, they provide the learner with a description of its uncertainty regarding the exact identity of the target concept. This version space of alternative hypotheses can be examined to determine whether the learner has converged to the target concept, to determine when the training data are inconsistent, to generate informative queries to further refine the version space, and to determine which unseen instances can be unambiguously classified based on the partially learned concept.
+>- Version spaces and the CANDIDATE-ELIMINATION algorithm provide a useful conceptual framework for studying concept learning. However, this learning algorithm is not robust to noisy data or to situations in which the unknown target concept is not expressible in the provided hypothesis space.
+>- Inductive learning algorithms are able to classify unseen examples only because of their implicit inductive bias for selecting one consistent hypothesis over another. The bias associated with the CANDIDATE-ELIMINATION algorithm is that the target concept can be found in the provided hypothesis space (__c &isin; H_). The output hypotheses and classifications of subsequent instances follow _deductively_ from this assumption together with the observed training data.
+>- If the hypothesis space is enriched to the point where there is a hypothesis corresponding to every possible subset of instances (the power set of the instances), this will remove any inductive bias from the CANDIDATE-ELIMINATION algorithm. Unfortunately, this also removes the ability to classify any instance beyond the observed training examples. An unbiased learner cannot make inductive leaps to classify unseen examples.
 
 
 
