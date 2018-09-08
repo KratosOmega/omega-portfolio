@@ -20,7 +20,7 @@ comments: true
 ##### pseudo code:
 >**function** PolyEval(a[0:n], v) <br>
 >**Input**: a[0:n] (an array of real numbers), v (a real number) <br>
->**Output:** the value of the polynomial a_n*x^n + a_(n-1)*x^(n-1) + ... + a_1*x + a_0 at x = v<br>
+>**Output:** the value of the polynomial a<sub>n</sub>*x<sup>n</sup> + a<sub>n-1</sub>*x<sup>n-1</sup> + ... + a<sub>1</sub>x + a<sub>0</sub> at x = v*<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sum := a[0] <br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Product := 1 <br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **FOR** i := 1 **TO** n **DO**<br>
@@ -59,7 +59,7 @@ def getDataSet(self):
 ##### pseudo code:
 >**function** HornerEval(a[0:n], v) <br>
 >**Input**: a[0:n] (an array of real numbers), v (a real number) <br>
->**Output:** the value of the polynomial a_n*x^n + a_(n-1)*x^(n-1) + ... + a_1*x + a_0 at x = v<br>
+>**Output:** the value of the polynomial a<sub>n</sub>*x<sup>n</sup> + a<sub>n-1</sub>*x<sup>n-1</sup> + ... + a<sub>1</sub>x + a<sub>0</sub> at x = v*<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sum := a[0] <br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **FOR** i := n - 1 **DOWNTO** n **DO**<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sum := Sum * v + a[i]<br>
