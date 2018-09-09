@@ -61,7 +61,7 @@ def getDataSet(self):
 >**Input**: a[0:n] (an array of real numbers), v (a real number) <br>
 >**Output:** the value of the polynomial a<sub>n</sub>*x<sup>n</sup> + a<sub>n-1</sub>*x<sup>n-1</sup> + ... + a<sub>1</sub>x + a<sub>0</sub> at x = v*<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sum := a[n] <br>
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **FOR** i := n - 1 **DOWNTO** n **DO**<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **FOR** i := n - 1 **DOWNTO** 0 **DO**<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sum := Sum * v + a[i]<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **ENDFOR**<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **RETURN(Sum)**<br>
