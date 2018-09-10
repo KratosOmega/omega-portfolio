@@ -58,23 +58,26 @@ def getDataSet(self):
 <hr>
 
 ##### pseudo code: Recursive version of EuclidGCD
->**function** ExtendEuclidGCD(a, b, g, s, t) <br>
->**Input**: a, b (two nonnegative integers)<br>
->**Output:** return g = gcd(a,b) and integers s and t such that sa + tb = g<br>
+>**function** ExtendEuclidGCD(a, b, g, x, y) <br>
+>**Input**: a, b (two nonnegative integers), g, x, y (random integers)<br>
+>**Output:** return (g, x, y), that g = gcd(a,b) and x and y such that ax + by = g<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **IF** b == 0 **DO**<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g = a;<br>
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s = 1;<br>
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t = 0;<br>
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURN(g)<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = 1;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y = 0;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURN(g, x, y)<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **ENDIF**<br>
+<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r = a mod b<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; q = a / b<br>
 <br>
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURN ExtendEuclidGCD(b, r, g, s, t) //recursive call<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g, x, y := ExtendEuclidGCD(b, r, g, x, y) //recursive call<br>
 <br>
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sTemp = s;<br>
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s = t;<br>
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t = sTemp - t*q;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; xTemp = x;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = y;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y = xTemp - y*q;<br>
+<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURN(g, x, y)<br>
 **end** ExtendEuclidGDC <br>
 
 >Performance: ?
