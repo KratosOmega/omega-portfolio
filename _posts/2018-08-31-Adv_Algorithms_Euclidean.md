@@ -70,7 +70,7 @@ def getDataSet(self):
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r = a mod b<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; q = a / b<br>
 <br>
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ExtendEuclidGCD(b, r, g, s, t) //recursive call<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURN ExtendEuclidGCD(b, r, g, s, t) //recursive call<br>
 <br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sTemp = s;<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s = t;<br>
