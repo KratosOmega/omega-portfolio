@@ -38,7 +38,7 @@ comments: true
 > \begin{equation}\int_{-\infty}^{\infty}f(x)dx\;=\;1\end{equation}
 > \begin{equation}p(a\;\leq\;x\;\leq\;b)\;=\;\int\_{a}^{b}f(x)dx\end{equation}
 > Note:<br>
-> \begin{equation}p(x\;=\;a\;=\;\int\_{a}^{a}f(x)dx\;=\;0\end{equation}
+> \begin{equation}p(x\;=\;a)\;=\;\int\_{a}^{a}f(x)dx\;=\;0\end{equation}
 > -- x must be a interval instead of an individual outcome, since the chance of observing this particular outcome (x = a) is quite small.<br>
 > _p(a &le; x &le; b) = p(a < x &le; b) = p(a &le; x < b) = p(a < x < b)_, only works for **continuous random variables**.<br>
 
@@ -139,7 +139,7 @@ comments: true
 <br>
 > ![Probability density function]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/probability_density_function_exponential_distribution.png){:class="img-responsive"}
 <br>
-> where the parameter _&theta;_ is a constant (&theta; > 0), _&theta;_ is the rate at which the curve decreases.<br>
+> where the parameter _&theta;_ is the **MEAN** of the exponential distribution (constant &theta; > 0), _&theta;_ is the rate at which the curve decreases.<br>
 <br>
 >- Cumulative distribution function<br>
 <br>
@@ -177,10 +177,15 @@ comments: true
 
 
 > Memoryless Property:
->- Geometric distribution is memoryless among the discrete distributions.
->- Exponential distribution is the continuous distribution that is memoryless:
+>- **Geometric distribution** is memoryless among the **discrete distributions**.
+>- Only Geometric distribution has this unique memoryless property in discrete distributions.
+>- **Exponential distribution** is the **continuous distribution** that is memoryless:
 > \begin{equation}p(x\;>\;a\;+\;b\mid x\;>\;a)\;=\;p(x\;>\;b)\end{equation}
->- This memoryless property sometimes causes concerns about the exponential distribution's usefulness as a model.
+>- This memoryless property sometimes causes concerns about the exponential distribution's usefulness as a model.<br>
+<br>
+> Example: given a light bulb has burned for 1000 hours, the memoryless property implies that, the probability of the bulb will burn at least 10 more hours is the same as the probability of a **new** light bulb burn for 10 hours. (which is not true in real life.)<br>
+<br>
+> This failure to account for the **deterioration** of the bulb over time is the property arises question the appropriateness of the exponential model for **life-time** data.
 
 > Connection with Poisson distribution:
 >- If the number of events _x_ in a specified area has Poisson distribution, the distance between any event and the next event has exponential distribution.
