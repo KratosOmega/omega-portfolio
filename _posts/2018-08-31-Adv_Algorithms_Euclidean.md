@@ -23,10 +23,9 @@ comments: true
 >&nbsp;&nbsp;&nbsp;&nbsp;b := b - a for b > a<br>
 >&nbsp;&nbsp;&nbsp;&nbsp;until a == b<br>
 >Euclid's gcd algorithm using **r = a - nb** to replace the while loop subtraction, which leads to formular:<br>
->\begin{equation}gcd(a,b) = gcd(b, a \; mod \; b)\end{equation}<br>
+>\begin{equation}gcd(a,b) = gcd(b, a \; mod \; b)\end{equation}
 
 <hr>
-
 <br>
 
 ##### pseudo code:
@@ -42,6 +41,7 @@ comments: true
 **end** EuclidGDC <br>
 
 >Performance: log_2(max(a,b))
+
 <hr>
 
 ##### Python Implementation:
@@ -55,6 +55,43 @@ def getDataSet(self):
 ~~~
 <br>
 
+<hr>
+
+##### pseudo code: Recursive version of EuclidGCD
+>**function** ExtendEuclidGCD(a, b, g, s, t) <br>
+>**Input**: a, b (two nonnegative integers)<br>
+>**Output:** return g = gcd(a,b) and integers s and t such that sa + tb = g<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **IF** b == 0 **DO**<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g = a;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s = 1;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t = 0;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RETURN(g)<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **ENDIF**<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r = a mod b<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; q = a / b<br>
+<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ExtendEuclidGCD(a, b, g, s, t) //recursive call<br>
+<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sTemp = s;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s = t;<br>
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; t = sTemp - t*q;<br>
+**end** ExtendEuclidGDC <br>
+
+>Performance: ?
+
+<hr>
+
+##### Python Implementation:
+<br>
+~~~ 
+#!/usr/bin/env python3
+def getDataSet(self):
+        """
+        :Description: Implementation of EuclidGDC
+        """
+~~~
+
+<br>
 <hr>
 
 #### Resources:
