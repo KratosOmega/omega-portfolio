@@ -148,12 +148,12 @@ comments: true
 <br>
 > #### Gamma Distribution
 >- Gamma Function:
-> \begin{equation}\gamma(\alpha)\;=\;\int_{0}^{\infty}x^{\alpha-1}e^{-x}dx\end{equation}
+> \begin{equation}\Gamma(\alpha)\;=\;\int_{0}^{\infty}x^{\alpha-1}e^{-x}dx\end{equation}
 >- Gamma function properties:
-> \begin{equation}\gamma(\alpha\;+\;1)\;=\;\alpha\gamma(\alpha)\;=\;\alpha(\alpha\;-\;1)\gamma(\alpha\;-\;1\;=\;\alpha !)\end{equation}
-> \begin{equation}\gamma(n)\;=\;(n\;-\;1)!\end{equation}
+> \begin{equation}\Gamma(\alpha\;+\;1)\;=\;\alpha\Gamma(\alpha)\;=\;\alpha(\alpha\;-\;1)\Gamma(\alpha\;-\;1\;=\;\alpha !)\end{equation}
+> \begin{equation}\Gamma(n)\;=\;(n\;-\;1)!\end{equation}
 > thus:
-> \begin{equation}\gamma(\alpha\;+\;1)\;=\;\int_{0}^{\infty}x^{\alpha}e^{-x}dx\end{equation}
+> \begin{equation}\Gamma(\alpha\;+\;1)\;=\;\int_{0}^{\infty}x^{\alpha}e^{-x}dx\end{equation}
 >- Using integration by parts, let:
 > \begin{equation}\mu\;=\;x^{\alpha}\;\;\;and\;\;\;v\;=\;-e^{-x}\end{equation}
 > \begin{equation}d\mu\;=\;\alpha x^{\alpha-1}\;\;\;and\;\;\;dv\;=\;e^{-x}dx\end{equation}
