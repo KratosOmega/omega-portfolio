@@ -30,6 +30,8 @@ comments: true
 >- Using mathematical model (function that fit the CRV distribution) for relative frequency of the data. Then calculate the integral base on interested interval.
 
 <br>
+<hr>
+<br>
 
 > #### Probability Density Function
 <br>
@@ -42,6 +44,8 @@ comments: true
 > -- x must be a interval instead of an individual outcome, since the chance of observing this particular outcome (x = a) is quite small.<br>
 > _p(a &le; x &le; b) = p(a < x &le; b) = p(a &le; x < b) = p(a < x < b)_, only works for **continuous random variables**.<br>
 
+<br>
+<hr>
 <br>
 
 > #### Cumulative Distribution Function (cdf)
@@ -61,6 +65,8 @@ comments: true
 > pdf can also be derived from cdf:
 > \begin{equation}pdf\;f(x)\;=\;\frac{d}{dx}cdf(x),\;\;\;x\;\in\;\mathbb{R}\end{equation}
 
+<br>
+<hr>
 <br>
 
 > #### Expectation (Mean) & Variance of a continuous RV
@@ -84,14 +90,12 @@ comments: true
 >- A simple model assumes that _x_ is equally likely to lie in any subinterval (of length _d_), that is irrespective of where it lies within _(a, b)_.
 >- This assumption leads to the **uniform probability distribution**.
 
->- Probability density function<br>
+>- Probability density function (Uniform distribution):<br>
 <br>
-> Uniform distribution has a pdf:
 > ![Probability Density Function]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/probability_density_function.png){:class="img-responsive"}
 <br>
->- Cumulative distribution function<br>
+>- Cumulative distribution function (Uniform distribution):<br>
 <br>
-> Uniform distribution has a cdf:
 > ![Cumulative Distribution Function]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/cumulative_distribution_function.png){:class="img-responsive"}
 <br>
 >- Uniform distribution (plots)<br>
@@ -132,21 +136,22 @@ comments: true
 > Variance depends **ONLY** on the length of the interval.
 
 <br>
+<hr>
+<br>
+
 > #### Exponential Distribution
 >- Exponential curve seems to fit many RV in engineering and the sciences.
 
->- Probability density function<br>
+>- Probability density function (exponential distribution):<br>
 <br>
 > ![Probability density function]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/probability_density_function_exponential_distribution.png){:class="img-responsive"}
 <br>
 > where the parameter _&theta;_ is the **MEAN** of the exponential distribution (constant &theta; > 0), _&theta;_ is the rate at which the curve decreases.<br>
 <br>
->- Cumulative distribution function<br>
+>- Cumulative distribution function (exponential distribution):<br>
 <br>
 > ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/cumulative_distribution_function_exponential_distribution.png){:class="img-responsive"}
-
 <br>
-> #### Gamma Distribution
 >- Gamma Function:
 > \begin{equation}\Gamma(\alpha)\;=\;\int_{0}^{\infty}x^{\alpha-1}e^{-x}dx\end{equation}
 >- Gamma function properties:
@@ -166,12 +171,12 @@ comments: true
 <br>
 > ![Gamma Function Integration with beta]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/gamma_function_beta.png){:class="img-responsive"}
 
->- Mean of Exponential Distribution (Gamma)<br>
+>- Mean (exponential distribution):<br>
 <br>
 > ![Mean of Exponential Distribution of Gamma]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/mean_of_exponential_distribution_gamma.png){:class="img-responsive"}<br>
 > Parameter _&theta;_ is actually the mean of the distribution.
 
->- Variance of Exponential Distribution (Gamma)<br>
+>- Variance (exponential distribution):<br>
 <br>
 > ![Variance of Exponential Distribution of Gamma]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/variance_of_exponential_distribution_gamma.png){:class="img-responsive"}<br>
 
@@ -203,26 +208,283 @@ comments: true
 > This is the **pdf for exponential distribution**.
 
 <br>
+<hr>
+<br>
+
+> #### Gamma Distribution
+>- Exponential distribution is a **special** case of Gamme distribution. (substitue &alpha; = 1)
+>- Gamma distribution in case of electronic components:<br>
+> -- few have very short life lenght<br>
+> -- many have something close to an average life length<br>
+> -- very few have extraordinarily long life length<br>
+<br>
+>- Probability Density Function (gamma distribution):
+<br><br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/gamma_distribution_pdf.png){:class="img-responsive"}<br>
+<br>
+> where Gamma Dist. integral of pdf (-&infin;, &infin;) = 1
+> \begin{equation}\int_{-\infty}^{\infty}f(x)=1\end{equation}
+
+>- Plot (gamma distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/gamma_distribution_plot.png){:class="img-responsive"}<br>
+> Note: _&alpha;_ is the shape parameter & _&beta;_ is the rate parameter.
+
+>- Mean & Variance of Gamma Distribution<br>
+<br>
+> Mean (gamma distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/gamma_distribution_mean.png){:class="img-responsive"}<br>
+<br>
+> Variance (gamma distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/gamma_distribution_variance.png){:class="img-responsive"}<br>
+
+<br>
+<hr>
+<br>
+
+> #### Inverse-Gamma Distribution
+>- If a RV _1/x_ follows Gamma distribution with parameters _&alpha;_ and _&beta;_, then _x_ has **Inverse-Gamma Distribution**.
+>- Inverse-Gamma Dist. is generally used in Bayesian analysis.<br>
+<br>
+>- Probability Density Function (inverse-gamma distribution):
+<br><br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/inverse-gamma_distribution_pdf.png){:class="img-responsive"}<br>
+<br>
+>- InverseGamma vs. Gamma Plots<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/inverseGamma_vs_gamma_plots.png){:class="img-responsive"}<br>
+<br>
+> Note: that the symbol "_~_" is denoted as "draws from" or "**follows**".
+
+<br>
+<hr>
+<br>
+
+> #### Chi-Square Distribution
+>- **Chi-square distribution** is a **special** case of Gamma distribution, which _&alpha; = k/2_ and _&beta; = 2_.
+>- This is also expressed as:
+> \begin{equation}X_{k}^{2}\;\sim\;\Gamma(\frac{k}{2},\;2)\end{equation}
+>- Probability Density Function (chi-square distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/chi-square_distribution_pdf.png){:class="img-responsive"}<br>
+<br>
+>- Chi-square has **additive property** since the inverse scale parameter is fixed:
+> If _x<sub>1</sub> ~ (X<sub>k<sub>1</sub></sub>)<sup>2</sup>_ and _x<sub>2</sub> ~ (X<sub>k<sub>2</sub></sub>)<sup>2</sup>_ are independent _X<sup>2</sup>_ variables, then _x<sub>1</sub> + x<sub>2</sub> ~ (X<sub>k<sub>1</sub>+k<sub>2</sub></sub>)<sup>2</sup>_
+
+<br>
+<hr>
+<br>
+
+> #### Inverse Chi-Square Distribution
+>- **Inverse Chi-square distribution** is a **special** case of Gamma distribution, which _&alpha; = k/2_ and _&beta; = 2_.<br>
+<br>
+>- Probability Density Function (inverse chi-square distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/inverse-chi-square_distribution_pdf.png){:class="img-responsive"}<br>
+<br>
+> NOTE: There is NO InverseChisq function in Julia, but InverseGamma can be used to sample from this distribution by setting _&alpha; = x/2_ and _&beta; = 2_.
+
+<br>
+<hr>
+<br>
+
 > #### Normal/Gaussian Distribution
->-
+>- Many naturally occurring measurements (e.g., heights of men) tend to have a relative frequency distribution:<br>
+>-- with some small values.<br>
+>-- with most values close to the average.<br>
+>-- with some high values, resulting in a bell shaped symmetric curve.<br>
+<br>
+>- Gaussian distribution is the most widely used probability distribution.<br>
+<br>
+>- Probability Density Function (gaussian/normal distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/gaussian_distribution_pdf.png){:class="img-responsive"}<br>
+<br>
+>- Mean (gaussian/normal distribution):<br>
+> \begin{equation}E(x)\;=\;\int_{-\infty}^{\infty}xf(x)dx\;=\;\int_{-\infty}^{\infty}x\frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^{2}/2\sigma^{2}}dx\;=\;\mu\end{equation}
+>- Variance (gaussian/normal distribution):<br>
+> \begin{equation}E[(x\;-\;\mu)^{2}]\;=\;\sigma^{2}\end{equation}
 
 <br>
+<hr>
+<br>
+
 > #### Beta Distribution
->-
+>- Exponential, Gamma, and Normal distributions are positive over an infinite interval.
+>- Beta distribution is constrained to the interval (0, 1).<br>
+<br>
+>- Probability Density Function (gaussian/normal distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/beta_distribution_pdf.png){:class="img-responsive"}<br>
+> where Beta Dist. integral of pdf(-&infin;, &infin;) = 1
+> \begin{equation}\int_{-\infty}^{\infty}f(x)=1\end{equation}<br>
+<br>
+>- Plot (gaussian/normal distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/beta_distribution_plots.png){:class="img-responsive"}<br>
+
+>- Mean & Variance of Beta Distribution<br>
+<br>
+> Mean (beta distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/beta_distribution_mean.png){:class="img-responsive"}<br>
+<br>
+> Variance (beta distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/beta_distribution_variance.png){:class="img-responsive"}<br>
 
 <br>
+<hr>
+<br>
+
 > #### Weibull Distribution
->-
+<br>
+>- When Gamma distribution is used to model life lengths of components, the failure rate function for Gamma distribution has an **upper bound**, which limits applicability to real systems.<br>
+>- Weibull distribution provides a **better** distribution for **life length data**.
+<br>
+> Probability Density Function (weibull distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/weibull_distribution_pdf.png){:class="img-responsive"}<br>
+<br>
+>- For &gamma; = 1, this becomes **exponential distribution**.
+>- For &gamma; > 1, the function looks like Gamma functions, with different mathematical properties.<br>
+<br>
+> CDF (weibull distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/weibull_distribution_cdf.png){:class="img-responsive"}<br>
 
+>- Mean & Variance of Weibull Distribution<br>
+<br>
+> Mean (weibull distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/weibull_distribution_mean.png){:class="img-responsive"}<br>
+<br>
+> Variance (weibull distribution):<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/weibull_distribution_variance.png){:class="img-responsive"}<br>
 
+<br>
+<hr>
+<br>
 
+### Bivariate & Multivariate Probability Distribution
+> Note: Previous posts discussed about the **Joint Probability** p(x, y) when _x_ & _y_ are **Discrete RV**. Here, we will discuss about the **Joint Probability** p(x, y) when _x_ & _y_ are **Continuous RV**.
 
+<br>
+> #### Joint Probability Distribution: Discrete Case
+> - Let _X_ and _Y_ be discrete randome variables. The **joint probability distribution** of _x_ and _y_ is given by:
+> \begin{equation}p(x,\;y)\;=\;P(X\;=\;x,\;Y\;=\;y)\end{equation}
+> defined for all states _x_ and _y_.<br>
+<br>
+>- All joint probability functions must satisfy:<br>
+<br>
+>-- 1) _p(x, y) &ge; 0, &nbsp;&nbsp;&nbsp; x, y &isin; (R)_<br>
+>-- 2) _&sum;<sub>x</sub>&sum;<sub>y</sub>p(x, y) = 1_<br>
+<br>
+>- The cumulative distribution function (discrete RV) is defined as:
+> \begin{equation}cdf(x,\;y)\;=\;P(X\;\leq\;x,\;Y\;\leq\;y),\;\;\;(x,\;y)\;\in\;\mathbb{R}^{2}\end{equation}
+> \begin{equation}cdf(x,\;y)\;=\;\sum_{x=-\infty}^{a}\sum_{x=-\infty}^{b}p(x,\;y)\end{equation}
 
+<br>
+<hr>
+<br>
 
+> #### Joint Probability Distribution: Continuous Case
+>- Let _X_ and _Y_ be continuous randome variables.
+>- Let _f(x, y)_ be a **bivariate** function which forms a probability surface in three dimensions.
+>- The probability that _x_ lies in one interval and that _y_ lies in another interval is represented as a volume under this surface.
+> \begin{equation}P(a\;\leq\;X\;\leq\;b,\;c\;\le\;Y\;\le\;d)\;=\;\int_{c}^{d}\int_{a}^{b}f(x,\;y)dxdy\end{equation}
+>- Cumulative distribution function (Continuous RV):
+> \begin{equation}cdf(a,\;b)\;=\;P(X\;\leq\;a,\;Y\;\le\;b)\;=\;\int_{-\infty}^{b}\int_{-\infty}^{a}f(x,\;y)dxdy\end{equation}
 
+<br>
+<hr>
+<br>
 
+> #### Marginal Probability Distribution: Conitnuous Case
+> - Marginal probability function of _x_ and _y_ is given by:
+> \begin{equation}f(x)\;=\;\int_{-\infty}^{\infty}f(x,\;y)dy\end{equation}
+> and
+> \begin{equation}f(y)\;=\;\int_{-\infty}^{\infty}f(x,\;y)dx\end{equation}
 
+<br>
+<hr>
+<br>
 
+> #### Conditional Probability Distributions: Continuous Case
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/conditional_probability_distributions_discrete_continuous_cases.png){:class="img-responsive"}<br>
+
+<br>
+<hr>
+<br>
+
+> #### Independent Random Variables: Continuous Case
+>- Discrete Case: Two discrete RV _x_ and _y_ are independent, **if and only if**, for all states _r_ and _s_ of variables _x_ and _y_,
+> \begin{equation}p(x\;=\;r,\;y\;=\;s)\;=\;p(x\;=\;r)p(y\;=\;s)\end{equation}
+> for all states _r_ of _x_.<br>
+<br>
+> NOTE: <br>
+> Joint Probability, _p(x=r, y=s)_ = the product of **independent** Marginal Probability, _p(x=r)p(y=s)_.<br>
+<br>
+>- Continuous Case: Continuous RV _x_ and _y_ are said to the independent if,
+> \begin{equation}f(x,\;y)\;=\;f(x)f(y)\end{equation}
+> for all values of _x_ and _y_.<br>
+
+<br>
+<hr>
+<br>
+
+> #### Expected Values: Continuous Case
+>- If _x_ and _y_ are discrete RV and _g(x, y)_ is any real-valued functions, the expected value of _g(x, y)_ is:
+> \begin{equation}E[g(x,\;y)]\;=\;\sum_{x}\sum_{y}g(x,\;y)p(x,\;y)\end{equation}
+> The sum is over all values of _(x, y)_ for which _p(x, y) > 0_.<br>
+<br>
+>- If _x_ and _y_ are continuous RV and _f(x, y)_ is a joint probability density function, the expected value of _g(x, y)_ is:
+> \begin{equation}E[g(x,\;y)]\;=\;\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}g(x,\;y)f(x,\;y)dxdy\end{equation}<br>
+<br>
+>- If _x_ and _y_ are **independent** with means _&mu;<sub>x</sub>_ and _&mu;<sub>y</sub>_, then:
+> \begin{equation}E(xy)\;=\;E(x)E(y)\end{equation}<br>
+<br>
+>- If _x_ and _y_ are independent, _g_ is a function of _x_ alone and _h_ is a function of _y_ alone, then:
+> \begin{equation}E[g(x)h(y)]\;=\;E[g(x)]E[h(y)]\end{equation}<br>
+
+<br>
+<hr>
+<br>
+
+> #### Covariance: Continuous Case
+>- Covariance helps to assess the relationship between two variables.<br>
+<br>
+>- Two variables have positive covariance:<br>
+>-- If _y_ tends to be large when _x_ tends to be large.<br>
+>-- If _y_ tends to be small when _x_ tends to be small.<br>
+<br>
+>- Two variables have negative covariance:<br>
+>-- If _y_ tends to be small when _x_ tends to be large.<br>
+>-- If _y_ tends to be large when _x_ tends to be small.<br>
+
+>- Covariance between two random variables _x_ and _y_ is given by:
+> \begin{equation}cov(x,\;y)\;=\;E[(x\;-\;\mu_{x})(y\;-\;\mu_{y})]\;=\;E(xy)\;-\;\mu_{x}\mu_{y}\end{equation}
+> where _&mu;<sub>x</sub> = E(x)_ and _&mu;<sub>y</sub> = E(y)_.
+
+<br>
+<hr>
+<br>
+
+> #### Correlation: Continuous Case
+>- Covariance depends on the **units of measurement**. (ex: covariance = 0.2 m<sup>2</sup> = 200 cm<sup>2</sup>)
+>- We need a measure that allows us to judge the strength of the association regardless of the units.
+
+>- Correlation between two random variables _x_ and _y_ is given by:
+> \begin{equation}\rho\;=\;\frac{E[(x\;-\;\mu_{x})(y\;-\;\mu_{y})]}{\sqrt{\sigma_{x}^{2}\sigma_{y}^{2}}}\;=\;\frac{cov(x,\;y)}{\sqrt{\sigma_{x}^{2}\sigma_{y}^{2}}}\;=\;\frac{cov(x,\;y)}{\sigma_{x}^{2}\sigma_{y}^{2}}\end{equation}
+>- It is a unitless quantity that takes on values between -1 and +1.
+>- If _x_ and _y_ are independent RV. Then:
+> \begin{equation}cov(x,\;y)\;=\;E(xy)\;-\;E(x)E(y)\;=\;E(x)E(y)\;-\;E(x)E(y)\;=\;0\end{equation}
+
+<br>
+<hr>
 <br>
 
 > NOTE: for integral, _f(x)dx_ means ==> anti-derivative _f(x)_ to get _F(x)_:
