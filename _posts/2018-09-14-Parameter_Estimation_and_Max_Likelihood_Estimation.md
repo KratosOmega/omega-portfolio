@@ -1,0 +1,188 @@
+---
+layout: post
+section-type: post
+title: Parameter Estimation & Max Likelihood Estimation
+category: Probability
+tags: [ 'probability', 'reading' ]
+comments: true
+---
+<head>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+<script type="text/javascript" src="http://www.hostmath.com/Math/MathJax.js?config=OK"></script>
+</head>
+
+
+### Probabilistic Inference vs. Parameter Estimation
+<br>
+> #### Probabilistic Inference
+>-  *Probabilistic Inference* involves computation of probabilities for events, given a _model family_ and _choices for the parameters_.<br>
+>- Given parameter a, the probability for each state of _x_ can be computed using **Binomial Distribution**:
+> \begin{equation}p(x)\;=\;{n\choose x}a^{x} (1\;-\;a)^{n-x},\;\;\;x\;=\;1,\;2,\;3,\;...,\;n\end{equation}
+<br>
+<hr>
+<br>
+
+> #### Source of Probability Distributions
+>- In reality, ONLY **Samples** & **Data** are available to us. **Parameter** (_a_ in our formula) is not available, but needs to be estimated.
+>- In general, we need to determine both the **probability model** & the **parameters** from the question.<br>
+> -- We have some understanding of how to choose a suitable probability model from a given situation.<br>
+> -- We need to estimate parameters using the collected data.<br>
+
+<br>
+<hr>
+<br>
+
+> #### Parameter Estimation
+>- **Parameter Estimation** involves estimation of parameters, given a _parametric model_ & _observed data_ drawn from it.<br>
+> -- e.g.: 20 apples were inspected and 3 apples were found to be damaged.<br>
+> -- Then, parameter _a_ = 3/20, however, we need to be careful of estimate our parameter, since the same parameter can be generated from different Distributions.<br>
+
+<br>
+<hr>
+<br>
+
+> #### Approaches for Parameter Estimation - Maximum Likelihood Estimation (MLE)
+>- Parameters are assumed to be **fixed** but **unknown**.<br>
+>- ML solution seeks the solution that _best explains the dataset X_<br>
+<br>
+> \begin{equation}\hat{\theta\;}\_{MLE}\;=\;argmax\_{\theta}p(X\mid \theta)\end{equation}
+> -- _X_ is the dataset that is drawn from **some** probability distribution _p(|&theta;)_, using **some** parameter _&theta;_.<br><br>
+> -- Also, assume that we know the model family of probability distribution _p(|&theta;)_ that we used for sample _X_ (which is also available to us).<br><br>
+> -- Using all available information, we try to estimate _&theta;_.<br><br>
+> -- _p(X|&theta;)_, refers to the likelihood that the dataset _X_ is generated using &theta;. This likelihood is a function _f(&theta;)_ of _&theta;_. <br><br>
+> -- _argmax<sub>&theta;</sub>_, refers to that the _&theta;_ at which this likelihood is maximized. In other words, we need to find the _&theta;_ that best explains the dataset _X_.<br><br>
+>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/MLE_a.png){:class="img-responsive"}<br>
+
+<br>
+<hr>
+<br>
+
+> #### Approaches for Parameter Estimation - Bayesian Estimation
+>- Parameters are assumed to be **random variables** with some **known** a _priori_ distribution _p(&theta;)_ (before we have access to dataset _X_).<br>
+>- Bayesian methods seek to estimate the _posterior_ density _p(&theta;|X)_ (after we have access to dataset _X_).<br>
+<br>
+> \begin{equation}p(\theta\mid X)\;\propto\;p(X\mid\theta)p(\theta)\end{equation}
+> \begin{equation}\hat{\theta\;}\_{MAP}\;=\;argmax\_{\theta}p(\theta\mid X)\end{equation}
+
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/MAP_a.png){:class="img-responsive"}<br>
+
+<br>
+<hr>
+<br>
+
+> #### Properties of Estimators
+>- **Consistency**: An estimator is consistent if the estimate _&theta;^_ it constructs, is guaranteed to converge to the true parameter value _&theta;_ as the quantity of data to which it is applied increases.<br>
+<br>
+>- **Bias**: The bias of an estimator _&eta;_ is defined as the deviation of the expectation of the estimate from the true value:<br>
+> \begin{equation}E[\hat{\theta\;}\_{\eta}]\end{equation}
+> when the sampling of data is viewed as a stochastic process, then the estimated parameter _&theta;^<sub>&eta;</sub>_ can be viewed as a continuous random variable. And _E[&theta;^<sub>&eta;</sub>]_ is the average expectation of all _&theta;^_.
+> \begin{equation}E[\hat{\theta\;}\_{\eta}]\;=\;\theta\;\Rightarrow\;\text{the estimator is Unbiased}\end{equation}
+> \begin{equation}E[\hat{\theta\;}\_{\eta}]\;\neq\;\theta\;\Rightarrow\;\text{the estimator is Biased}\end{equation}
+<br>
+>- **Variance (and efficiency)**: All else being equal, an estimator with smaller variance is preferable to one with greater variance.
+> \begin{equation}V[\hat{\theta\;}\_{\eta}]\end{equation}
+
+<br>
+<hr>
+<br>
+
+> #### Assessing Bias in an estimator:
+>- The question is whether or not the estimator differs from the actual parameter.<br>
+>- If the actual value is not different from the estimated value, we call it an unbiased estimator.<br>
+
+<br>
+<hr>
+<br>
+
+> #### Bias vs. Variance
+>- Bias: How close is the estimate to the true value (on average)><br>
+>- Variance: How much does it change for different datasets?<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/bias_vs_variance.png){:class="img-responsive"}<br>
+
+<br>
+<hr>
+<br>
+
+> #### Bias-Variance Tradeoff
+>- In most cases, you can only decrease one of them at the expense of the other.<br>
+>- Due to conflict in trying to simultaneously minimize these two sources of error:<br>
+> -- 1) Error due to wrong assumptions in the learning algorithm (missses regularities in the data - underfitting).<br>
+> -- 2) Error from sensitivity to small fluctuations (noise) in the data (models noise in the data-overfitting).<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/bias-variance_tradeoff.png){:class="img-responsive"}<br>
+
+<br>
+<hr>
+<br>
+
+### Max. Likelihood vs. Bayesian
+<br>
+> #### 
+>- <br>
+>- <br>
+<br>
+<hr>
+<br>
+
+<br>
+> #### 
+>- <br>
+>- <br>
+<br>
+<hr>
+<br>
+
+<br>
+> #### 
+>- <br>
+>- <br>
+<br>
+<hr>
+<br>
+
+### Desirable Properties of Estimators
+<br>
+> #### 
+>- <br>
+>- <br>
+<br>
+<hr>
+<br>
+
+<br>
+> #### 
+>- <br>
+>- <br>
+<br>
+<hr>
+<br>
+
+<br>
+> #### 
+>- <br>
+>- <br>
+<br>
+<hr>
+<br>
+
+
+
+
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/){:class="img-responsive"}<br>
+
+
+
+
+
+
+<br>
+
+<hr>
+
+#### Resources:
+This post is derived from [Ph.D. Atluri](http://homepages.uc.edu/~atlurigm/) CS6035 (Learning Probabilistic Model) course in University of Cincinnati.
+<br><br>
+This post should ONLY be used for course reference and self-studying. It should NEVER be used for any business purpose without [Ph.D. Atluri](http://homepages.uc.edu/~atlurigm/)'s authorization.
+<br>
