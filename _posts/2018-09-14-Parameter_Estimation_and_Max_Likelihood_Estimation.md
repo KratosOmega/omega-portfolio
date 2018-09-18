@@ -119,25 +119,115 @@ comments: true
 
 ### Max. Likelihood vs. Bayesian
 <br>
-> #### 
->- <br>
->- <br>
+> #### Random Sampling: Independent & Identically Distributed
+>- _x ~ p_: _x_ is a sample that is drawn from distribution _p_.
+>- Sampling depends on several items:<br>
+>-- Distribution (along with the parameters)<br>
+>-- Sample size _n_<br>
+>-- Method of sampling (with or without replacement)<br>
+<br>
+>- _x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>_ form a random sample of size _n_ if:<br>
+>-- x<sub>i</sub>'s are independently sampled.
+>-- Ever x<sub>i</sub> is drawn from the same probability distribution (same model family & same parameters), i.e., identically distributed.<br>
+<br>
+>- If a random sample satisfies the above two properties, we say x<sub>i</sub>'s are I.I.D..
+
+<br>
+<hr>
+<br>
+
+> #### Joint Probability for observations / samples / data
+>- The probability density function (pdf) of a RV _x_, conditioned on the set of parameters &theta;, is denoted as _f(x|&theta;)_.<br>
+>-- This function identifies the data generating process that underlies an observed sample of data.<br>
+<br>
+>- For a variable _x_, a set of I.I.D. observations _D=(x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>)_ are drawn using a pdf _f(x|&theta;)_.<br>
+<br>
+>- The joint density of _n_ I.I.D. observations from this process is:
+> \begin{equation}p(x\_{1},\;x\_{2},\;...,\;x\_{n}\mid\theta)\end{equation}
+<br>
+>- As each of the observations are **independent** and **identically distributed**:
+> \begin{equation}p(x\_{1},\;x\_{2},\;...,\;x\_{n}\mid\theta)\;=\;p(x\_{1}\mid\theta)p(x\_{2}\mid\theta)...p(x\_{n}\mid\theta)\;=\;\prod\_{i=1}^{n}f(x_{i}\mid\theta)\end{equation}
+
+<br>
+<hr>
+<br>
+
+> #### Likelihood function _L(&theta;|D)_
+>- This joint density is the **likelihood function**, defined as a function of the **unknown parameter** _&theta;_:<br>
+> \begin{equation}p(x\_{1},\;x\_{2},\;...,\;x\_{n}\mid\theta)\;=\;\prod\_{i=1}^{n}f(x_{i}\mid\theta)\;=\;L(\theta\mid x)\end{equation}
+>- Note that we write the joint density of observations as _p(D|&theta;)_, whereas the likelihood function, is written as _L(\theta|D)_.<br>
+<br>
+>- Likelihood function is also denoted as _L(&theta;)_ for simplicity.<br>
+
+<br>
+<hr>
+<br>
+
+> #### PDF vs. Likelihood Function
+>- Probability density function _p(x)_:<br>
+>-- Function of state of RV _x_.<br>
+>-- Normalized &sum;<sub>x</sub>p(x) = 1.<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/pdf_example.png){:class="img-responsive"}<br>
+<br>
+
+>- Likelihood function L(&theta;|x):<br>
+>-- Function of unknown parameter _&theta_.<br>
+>-- Unnormalized.<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/likelihood_example.png){:class="img-responsive"}<br>
+
 <br>
 <hr>
 <br>
 
 <br>
-> #### 
->- <br>
->- <br>
+> #### Maximum Likelihood Estimation (MLE)
+>- MLE solution seeks the solution that best explains the dataset _X_<br>
+> \begin{equation}\hat{\theta\;}\_{MLE}\;=\;argmax\_{\theta}p(D\mid \theta)\;=\;argmax\_{\theta}L(\theta)\end{equation}
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/likelihood_example_mle.png){:class="img-responsive"}<br>
+
 <br>
 <hr>
 <br>
 
+> #### Log-Likelihood<br>
+>- Likelihood L(&theta;&#8739;D) for n observations is a product of n, <br>
+> where each 0 &le; p(x<sub>i</sub>&#8739;&theta;) &le; 1.<br>
 <br>
-> #### 
->- <br>
->- <br>
+>- As a result, likelihood function will taken on extremely small values: <br>
+> _L(&theta;) = &theta;<sup>NH</sup>(1 - &theta;)<sup>NT</sup>_<br>
+<br>
+>- **log-likelihood function** helps to avoid numerical underflow:
+> \begin{equation}l(\theta)\;=\;logL(\theta)\end{equation}
+>- Logarithm is a monotonic function, so the logarithm of a function achieves its maximum value at the same points as the function itself.<br>
+<br>
+>- It is easier to differentiate for **sum of terms** rather than **product of terms**.<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/log-likelihood_example.png){:class="img-responsive"}<br>
+
+<br>
+<hr>
+<br>
+
+> #### Finding &theta; where Log-Likelihood is maximum - Approach I
+>- Compute derivative and solve for parameters.<br>
+>-- If possible, compute the **first derivative** of the log-likelihood and set it to 0.<br>
+>-- Solve ofr parameters.<br>
+>-- Compute partial derivatives when there are multiple unknown parameters.
+
+<br>
+<hr>
+<br>
+
+> #### Finding &theta; where Log-Likelihood is maximum - Approach II
+>- When approach I is not possible (particularly when the model involves many parameters and its PDF is highly non-linear), the use **gradient descent approach**.<br>
+>-- Use negative log-likelihood (also referred to as a cost function)<br>
+>-- Randomly initialize and then incrementally update our weights by calculating the slope of our objective function.<br>
+>-- When applying the cost function, we want to continue updating our weights until the slope of the gradient gets as close to zero as possible.<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/gradient_descent_approach_example.png){:class="img-responsive"}<br>
+
 <br>
 <hr>
 <br>
