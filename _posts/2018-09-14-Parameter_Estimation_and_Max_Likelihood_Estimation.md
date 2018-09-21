@@ -81,11 +81,24 @@ comments: true
 > \begin{equation}E[\hat{\theta\;}\_{\eta}]\;\neq\;\theta\;\Rightarrow\;\text{the estimator is Biased}\end{equation}
 <br>
 >- **Variance (and efficiency)**: All else being equal, an estimator with smaller variance is preferable to one with greater variance.
-> \begin{equation}V[\hat{\theta\;}\_{\eta}]\end{equation}
+> \begin{equation}V[\hat{\theta\;}\_{\eta}]\;=\;\\end{equation}
 
 <br>
 <hr>
 <br>
+
+> #### Estimating Bias
+>- Estimator of mean is unbiased if:<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/estimating_bias_mean.png){:class="img-responsive"}<br>
+>- Estimator of variance is unbiased if:<br>
+<br>
+> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/estimating_bias_variance.png){:class="img-responsive"}<br>
+
+<br>
+<hr>
+<br>
+
 
 > #### Assessing Bias in an estimator:
 >- The question is whether or not the estimator differs from the actual parameter.<br>
@@ -231,45 +244,6 @@ comments: true
 <br>
 <hr>
 <br>
-
-### Desirable Properties of Estimators
-<br>
-> #### 
->- <br>
->- <br>
-<br>
-<hr>
-<br>
-
-<br>
-> #### 
->- <br>
->- <br>
-<br>
-<hr>
-<br>
-
-<br>
-> #### 
->- <br>
->- <br>
-<br>
-<hr>
-<br>
-
-
-
-
-> ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/){:class="img-responsive"}<br>
-
-
-
-
-
-
-<br>
-
-<hr>
 
 #### Resources:
 This post is derived from [Ph.D. Atluri](http://homepages.uc.edu/~atlurigm/) CS6035 (Learning Probabilistic Model) course in University of Cincinnati.
