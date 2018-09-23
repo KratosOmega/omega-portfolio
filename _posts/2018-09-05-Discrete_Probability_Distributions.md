@@ -34,7 +34,11 @@ comments: true
 
 > #### Expectation
 >- Discrete probability distribution shows the long-run relative frequency of occurrences for numerical outcomes.
->- Expectation or Expected value is a one number summary of the distribution.
+>- Expectation or Expected value is a one number summary of the distribution. The expected value (or mean) of X, where X is a discrete random variable, is a weighted average of the possible values that X can take, each value being weighted according to the probability of that event occurring.<br>
+<br>
+>- In another word, expectation can be understanded as: <br>
+<br>
+> E(X) = the SUM of [(each of the possible outcomes _x<sub>i</sub>_) × (the probability of the outcome occurring)], where _x<sub>i</sub> &isin; X_.
 > \begin{equation}E(x)\;=\;\sum_{x}xp(x)\end{equation}
 >- Think of it as the average of a large number of "draws" x1, x2, ..., xn from the distribution.
 > \begin{equation}E(x)\;\approx\;\frac{1}{n}\sum_{i=1}^{n}x_{i}\;\;\;\text{(Law of large numbers)}\end{equation}
@@ -152,7 +156,8 @@ comments: true
 >- Multinomial distribution Variance
 > For i &isin; {1, 2, ..., k}, the variance of x<sub>i</sub> is:
 > \begin{equation}\sigma^{2}(x_{i})\;=\;np_{i}(1\;-\;p_{i})\end{equation}
->- Multinomial distribution Covariance
+>- Multinomial distribution Covariance<br>
+<br>
 > In general, for distinct i, j &isin; {1, 2, ..., k}, the co-variance of x<sub>i</sub> and x<sub>j</sub> is:
 > \begin{equation}cov(x,\;y)\;=\;E[(x\;-\;E(x))(y\;-\;E(y))]\end{equation}
 
