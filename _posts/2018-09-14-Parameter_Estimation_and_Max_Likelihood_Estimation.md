@@ -43,7 +43,7 @@ comments: true
 
 > #### Approaches for Parameter Estimation - Maximum Likelihood Estimation (MLE)
 >- Parameters are assumed to be **fixed** but **unknown**.<br>
->- ML solution seeks the solution that _best explains the dataset X_<br>
+>- MLE solution seeks the solution that _best explains the dataset X_<br>
 <br>
 > \begin{equation}\hat{\theta\;}\_{MLE}\;=\;argmax\_{\theta}p(X\mid \theta)\end{equation}
 > -- _X_ is the dataset that is drawn from **some** probability distribution _p(|&theta;)_, using **some** parameter _&theta;_.<br><br>
@@ -109,7 +109,7 @@ comments: true
 <br>
 
 > #### Bias vs. Variance
->- Bias: How close is the estimate to the true value (on average)><br>
+>- Bias: How close is the estimate to the true value (on average)<br>
 >- Variance: How much does it change for different datasets?<br>
 <br>
 > ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/bias_vs_variance.png){:class="img-responsive"}<br>
@@ -140,8 +140,8 @@ comments: true
 >-- Method of sampling (with or without replacement)<br>
 <br>
 >- _x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>_ form a random sample of size _n_ if:<br>
->-- x<sub>i</sub>'s are independently sampled.
->-- Ever x<sub>i</sub> is drawn from the same probability distribution (same model family & same parameters), i.e., identically distributed.<br>
+>-- x<sub>i</sub>'s are independently sampled.<br>
+>-- Every x<sub>i</sub> is drawn from the same probability distribution (same model family & same parameters), i.e., identically distributed.<br>
 <br>
 >- If a random sample satisfies the above two properties, we say x<sub>i</sub>'s are I.I.D..
 
@@ -185,7 +185,7 @@ comments: true
 <br>
 
 >- Likelihood function L(&theta;|x):<br>
->-- Function of unknown parameter _&theta_.<br>
+>-- Function of unknown parameter _&theta;_.<br>
 >-- Unnormalized.<br>
 <br>
 > ![]({{site.baseurl}}/assets/img/posts_img/2018-09-14-Parameter_Estimation_and_Max_Likelihood_Estimation/likelihood_example.png){:class="img-responsive"}<br>

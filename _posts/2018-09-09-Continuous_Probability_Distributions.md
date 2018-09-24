@@ -13,21 +13,23 @@ comments: true
 
 ### Characterizing Continuous Probability Distributions
 <br>
+
 > #### Continuous Randome Variables
-> - Discrete Random Variables:<br>
-> -- DRV have a continum of possible values.<br>
-> -- DRV have more than a countable collection of possible values. (weight, height)<br>
-> -- Can only be measured instead of counting.<br>
-> -- DRV can take on any value in a interval of real numbers.<br>
-> -- No guarantee that all values will we found in a sample if one looks long enough.<br>
-> -- No value can be ruled out as a possible observation.<br>
+> - CRV have a continum of possible values.<br>
+> - RV have more than a countable collection of possible values. (weight, height)<br>
+> - Can only be measured instead of counting.<br>
+> - CRV can take on any value in a interval of real numbers.<br>
+> - No guarantee that all values will we found in a sample if one looks long enough.<br>
+> - No value can be ruled out as a possible observation.<br>
 
 >- Probability assignment for continuous random variables<br>
 > -- CRV can have **infinite** number of possible outcomes.<br>
 > -- Thus, it can not be assigned a **positive probability** to each possible outcome & ensurethat they sum to 1.<br>
 > -- But, we can assign positive probabilities to **intervals** of real numbers in a manner consisten with probability axioms.<br>
 
->- Using mathematical model (function that fit the CRV distribution) for relative frequency of the data. Then calculate the integral base on interested interval.
+>- Using mathematical model (function that fit the CRV distribution) for relative frequency of the data. Then calculate the integral base on interested interval.<br>
+<br>
+> ![Probability Density Function]({{site.baseurl}}/assets/img/posts_img/2018-09-09-Continuous_Probability_Distributions/pdf_vs_pmf.png){:class="img-responsive"}
 
 <br>
 <hr>
