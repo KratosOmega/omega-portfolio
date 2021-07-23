@@ -49,7 +49,7 @@ $(document).ready(function(){
     //
 
     // ********************************************************************************************************************* click to switch exp & skill set
-    expSectionCtrl("research");
+    expSectionCtrl("webDev");
     //
     $(".showResearch").click(function(){
         expSectionCtrl("research");
