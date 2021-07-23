@@ -169,6 +169,8 @@ sass:
 
 gems:
   - jekyll-paginate
+
+plugins: [jekyll-paginate]
 #  - jemoji
 
 
